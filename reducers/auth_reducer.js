@@ -10,7 +10,8 @@ import {
 const INITIAL_STATE = {
 	phone: null,
 	codeSent: false,
-	loggedIn: false
+	loggedIn: false,
+	username: null
 };
 
 export default (state = INITIAL_STATE, action) => {

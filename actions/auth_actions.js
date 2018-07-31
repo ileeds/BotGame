@@ -22,7 +22,8 @@ export const getCode = phone => async dispatch => {
 	}
 };
 
-export const sendCode = (phone, code) => async dispatch => {
+export const sendCode = code => async (dispatch, getState) => {
+	const { phone } = getState().auth;
 	try {
 		let { data } = await axios.post(`${ROOT_URL}/verifyOneTimePassword`, {
 			phone,
@@ -46,11 +47,26 @@ export const verifyAuth = () => dispatch => {
 	});
 };
 
-export const anotherCode = phone => async dispatch => {
+export const anotherCode = () => async (dispatch, getState) => {
+	const { phone } = getState().auth;
 	try {
 		await axios.post(`${ROOT_URL}/requestOneTimePassword`, { phone });
 		dispatch({ type: GETCODE_SUCCESS, payload: phone });
 	} catch (err) {
 		dispatch({ type: GETCODE_FAIL });
 	}
+};
+
+export const setUsername = username => (dispatch, getState) => {
+	const { user } = getState().auth;
+	user
+		.updateProfile({
+			username
+		})
+		.then(() => {
+			dispatch({ type: SETUSERNAME_SUCCESS });
+		})
+		.catch(error => {
+			dispatch({ type: SETUSERNAME_FAIL });
+		});
 };

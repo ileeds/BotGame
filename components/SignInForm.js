@@ -23,12 +23,12 @@ class SignInForm extends Component {
 				</View>
 
 				<Button
-					onPress={() => this.props.sendCode(this.props.phone, this.state.code)}
+					onPress={() => this.props.sendCode(this.state.code)}
 					title="Submit"
 				/>
 
 				<Button
-					onPress={() => this.props.anotherCode(this.props.phone)}
+					onPress={() => this.props.anotherCode()}
 					title="Get Another Code"
 				/>
 			</View>
@@ -36,12 +36,7 @@ class SignInForm extends Component {
 	}
 }
 
-const mapStateToProps = ({ auth }) => {
-	const { phone } = auth;
-	return { phone };
-};
-
 export default connect(
-	mapStateToProps,
+	null,
 	{ sendCode, anotherCode }
 )(SignInForm);

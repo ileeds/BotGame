@@ -19,6 +19,7 @@ import NonAnonymous from './screens/NonAnonymous';
 import Result from './screens/Result';
 import Splash from './screens/Splash';
 import SendCode from './screens/SendCode';
+import Username from './screens/Username';
 
 export default class App extends React.Component {
 	render() {
@@ -31,6 +32,7 @@ export default class App extends React.Component {
 				start: createBottomTabNavigator({
 					sendCode: SendCode,
 					enterCode: EnterCode,
+					username: Username,
 					main: createBottomTabNavigator({
 						home: Home,
 						inviteFriends: InviteFriends,

@@ -11,8 +11,6 @@ class SignUpForm extends Component {
 	state = { phone: '' };
 
 	render() {
-		const { handleSubmit } = this.props;
-
 		return (
 			<View>
 				<View style={{ marginBottom: 10 }}>

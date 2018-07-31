@@ -3,12 +3,22 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 
 class Splash extends Component {
-	componentDidMount() {
-		if (this.props.loggedIn) {
-			this.props.navigation.navigate('home');
+	navigate(props) {
+		if (props.loggedIn) {
+			props.navigation.navigate('home');
+		} else if (props.codeSent) {
+			props.navigation.navigate('enterCode');
 		} else {
-			this.props.navigation.navigate('sendCode');
+			props.navigation.navigate('sendCode');
 		}
+	}
+
+	componentDidMount() {
+		this.navigate(this.props);
+	}
+
+	componentWillReceiveProps(nextProps) {
+		this.navigate(nextProps);
 	}
 
 	render() {
@@ -17,8 +27,8 @@ class Splash extends Component {
 }
 
 const mapStateToProps = ({ auth }) => {
-	const { loggedIn } = auth;
-	return { loggedIn };
+	const { loggedIn, codeSent } = auth;
+	return { loggedIn, codeSent };
 };
 
 export default connect(mapStateToProps)(Splash);
