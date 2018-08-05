@@ -4,12 +4,13 @@ import {
 	SENDCODE_SUCCESS,
 	SENDCODE_FAIL,
 	LOGIN_SUCCESS,
-	LOGIN_FAIL
+	LOGIN_FAIL,
+	SETUSERNAME_SUCCESS,
+	SETUSERNAME_FAIL
 } from '../actions/types';
 
 const INITIAL_STATE = {
 	phone: null,
-	codeSent: false,
 	loggedIn: false,
 	username: null
 };
@@ -17,13 +18,17 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		case GETCODE_SUCCESS:
-			return { ...state, phone: action.payload, codeSent: true };
+			return { ...state, phone: action.payload };
 		case GETCODE_FAIL:
-			return { ...state, codeSent: false };
+			return { ...state };
 		case LOGIN_SUCCESS:
 			return { ...state, loggedIn: true };
 		case LOGIN_FAIL:
 			return { ...state, loggedIn: false };
+		case SETUSERNAME_SUCCESS:
+			return { ...state, username: action.payload };
+		case SETUSERNAME_FAIL:
+			return { ...state, username: null };
 		default:
 			return state;
 	}

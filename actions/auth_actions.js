@@ -7,7 +7,9 @@ import {
 	SENDCODE_SUCCESS,
 	SENDCODE_FAIL,
 	LOGIN_SUCCESS,
-	LOGIN_FAIL
+	LOGIN_FAIL,
+	SETUSERNAME_SUCCESS,
+	SETUSERNAME_FAIL
 } from './types';
 
 const ROOT_URL =
@@ -58,13 +60,13 @@ export const anotherCode = () => async (dispatch, getState) => {
 };
 
 export const setUsername = username => (dispatch, getState) => {
-	const { user } = getState().auth;
+	const user = firebase.auth().currentUser;
 	user
 		.updateProfile({
 			username
 		})
 		.then(() => {
-			dispatch({ type: SETUSERNAME_SUCCESS });
+			dispatch({ type: SETUSERNAME_SUCCESS, payload: username });
 		})
 		.catch(error => {
 			dispatch({ type: SETUSERNAME_FAIL });

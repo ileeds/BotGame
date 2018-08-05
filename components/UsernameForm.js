@@ -14,7 +14,7 @@ class UsernameForm extends Component {
 					<FormLabel>Enter Username</FormLabel>
 					<FormInput
 						value={this.state.username}
-						onChangeText={phone => this.setState({ username })}
+						onChangeText={username => this.setState({ username })}
 					/>
 				</View>
 				<Button

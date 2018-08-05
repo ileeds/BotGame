@@ -14,7 +14,7 @@ export default ChildComponent => {
 		shouldNavigateAway() {
 			if (!this.props.loggedIn) {
 				this.props.navigation.pop();
-				if (this.props.codeSent) {
+				if (this.props.phone) {
 					this.props.navigation.navigate('enterCode');
 				} else {
 					this.props.navigation.navigate('sendCode');
@@ -28,8 +28,8 @@ export default ChildComponent => {
 	}
 
 	const mapStateToProps = ({ auth }) => {
-		const { loggedIn, codeSent } = auth;
-		return { loggedIn, codeSent };
+		const { loggedIn, phone } = auth;
+		return { loggedIn, phone };
 	};
 
 	return connect(mapStateToProps)(ComposedComponent);
