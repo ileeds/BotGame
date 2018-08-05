@@ -60,6 +60,9 @@ export const anotherCode = () => async (dispatch, getState) => {
 };
 
 export const setUsername = username => (dispatch, getState) => {
+	if (!username) {
+		return dispatch({ type: SETUSERNAME_FAIL });
+	}
 	const user = firebase.auth().currentUser;
 	user
 		.updateProfile({
@@ -68,7 +71,7 @@ export const setUsername = username => (dispatch, getState) => {
 		.then(() => {
 			dispatch({ type: SETUSERNAME_SUCCESS, payload: username });
 		})
-		.catch(error => {
+		.catch(err => {
 			dispatch({ type: SETUSERNAME_FAIL });
 		});
 };

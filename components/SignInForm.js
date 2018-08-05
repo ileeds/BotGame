@@ -3,9 +3,7 @@ import { View } from 'react-native';
 import { FormLabel, FormInput, Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { sendCode, anotherCode } from '../actions';
-
-const ROOT_URL =
-	'https://us-central1-one-time-password-1bd5c.cloudfunctions.net';
+import ErrorMessage from './ErrorMessage';
 
 class SignInForm extends Component {
 	state = { code: '' };
@@ -13,6 +11,7 @@ class SignInForm extends Component {
 	render() {
 		return (
 			<View>
+				<ErrorMessage error={this.props.error} />
 				<View style={{ marginBottom: 10 }}>
 					<FormLabel>Enter Code</FormLabel>
 					<FormInput
@@ -36,7 +35,12 @@ class SignInForm extends Component {
 	}
 }
 
+const mapStateToProps = ({ auth }) => {
+	const { error } = auth;
+	return { error };
+};
+
 export default connect(
-	null,
+	mapStateToProps,
 	{ sendCode, anotherCode }
 )(SignInForm);

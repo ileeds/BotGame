@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { Header } from 'react-native-elements';
 
-const Welcome = () => (
+const WelcomeHeader = () => (
 	<Header>
 		<Text style={styles.textStyle}>Welcome to Bot Game</Text>
 	</Header>
@@ -17,4 +17,4 @@ const styles = {
 	}
 };
 
-export default Welcome;
+export default WelcomeHeader;

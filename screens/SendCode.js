@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import SignUpForm from '../components/SignUpForm';
-import Welcome from '../components/Welcome';
+import WelcomeHeader from '../components/WelcomeHeader';
 
 class SendCode extends Component {
 	render() {
 		return (
 			<View>
-				<Welcome />
+				<WelcomeHeader />
 				<SignUpForm />
 			</View>
 		);

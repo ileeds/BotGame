@@ -1,0 +1,34 @@
+import React from 'react';
+import { createStore } from 'redux';
+import reducers from './test_reducer';
+
+const navigation = { navigate: jest.fn(), pop: jest.fn() };
+
+const initialState = {
+	auth: {
+		phone: null,
+		codeSent: false,
+		loggedIn: false,
+		username: null
+	}
+};
+
+const store = createStore(reducers, initialState);
+
+export const initialProps = () => {
+	return { navigation, initialState, store };
+};
+
+export const updateStore = (key, value) => {
+	if (key && value) {
+		initialState = {
+			...initialState,
+			auth: {
+				...initialState.auth,
+				[key]: value
+			}
+		};
+	}
+
+	return createStore(reducers, initialState);
+};

@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { FormLabel, FormInput, Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { setUsername } from '../actions';
+import ErrorMessage from './ErrorMessage';
 
 class UsernameForm extends Component {
 	state = { username: '' };
@@ -10,6 +11,7 @@ class UsernameForm extends Component {
 	render() {
 		return (
 			<View>
+				<ErrorMessage error={this.props.error} />
 				<View style={{ marginBottom: 10 }}>
 					<FormLabel>Enter Username</FormLabel>
 					<FormInput
@@ -26,7 +28,12 @@ class UsernameForm extends Component {
 	}
 }
 
+const mapStateToProps = ({ auth }) => {
+	const { error } = auth;
+	return { error };
+};
+
 export default connect(
-	null,
+	mapStateToProps,
 	{ setUsername }
 )(UsernameForm);
