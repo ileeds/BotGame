@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { FormLabel, FormInput, Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { getCode } from '../actions';
-import ErrorMessage from './ErrorMessage';
+import { renderErrorAndLoading } from '../appUtils/renderFunctions';
 
 class SignUpForm extends Component {
 	state = { phone: '' };
@@ -11,7 +11,7 @@ class SignUpForm extends Component {
 	render() {
 		return (
 			<View>
-				<ErrorMessage error={this.props.error} />
+				{renderErrorAndLoading(this.props.error, this.props.loading)}
 				<View style={{ marginBottom: 10 }}>
 					<FormLabel>Enter Phone Number</FormLabel>
 					<FormInput
@@ -30,8 +30,8 @@ class SignUpForm extends Component {
 }
 
 const mapStateToProps = ({ auth }) => {
-	const { error } = auth;
-	return { error };
+	const { error, loading } = auth;
+	return { error, loading };
 };
 
 export default connect(

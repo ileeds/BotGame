@@ -1,5 +1,6 @@
 import React from 'react';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import reducers from './test_reducer';
 
 const navigation = { navigate: jest.fn(), pop: jest.fn() };
@@ -7,13 +8,12 @@ const navigation = { navigate: jest.fn(), pop: jest.fn() };
 const initialState = {
 	auth: {
 		phone: null,
-		codeSent: false,
 		loggedIn: false,
 		username: null
 	}
 };
 
-const store = createStore(reducers, initialState);
+const store = createStore(reducers, initialState, applyMiddleware(thunk));
 
 export const initialProps = () => {
 	return { navigation, initialState, store };
@@ -30,5 +30,5 @@ export const updateStore = (key, value) => {
 		};
 	}
 
-	return createStore(reducers, initialState);
+	return createStore(reducers, initialState, applyMiddleware(thunk));
 };

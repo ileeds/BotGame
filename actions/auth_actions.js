@@ -2,6 +2,7 @@ import firebase from '../config/firebase';
 import axios from 'axios';
 
 import {
+	AUTH_USER_ACTION,
 	GETCODE_SUCCESS,
 	GETCODE_FAIL,
 	SENDCODE_SUCCESS,
@@ -11,33 +12,7 @@ import {
 	SETUSERNAME_SUCCESS,
 	SETUSERNAME_FAIL
 } from './types';
-
-const ROOT_URL =
-	'https://us-central1-one-time-password-1bd5c.cloudfunctions.net';
-
-export const getCode = phone => async dispatch => {
-	try {
-		await axios.post(`${ROOT_URL}/newUserOneTimePassword`, { phone });
-		dispatch({ type: GETCODE_SUCCESS, payload: phone });
-	} catch (err) {
-		dispatch({ type: GETCODE_FAIL });
-	}
-};
-
-export const sendCode = code => async (dispatch, getState) => {
-	const { phone } = getState().auth;
-	try {
-		let { data } = await axios.post(`${ROOT_URL}/verifyOneTimePassword`, {
-			phone,
-			code
-		});
-
-		firebase.auth().signInWithCustomToken(data.token);
-		dispatch({ type: SENDCODE_SUCCESS });
-	} catch (err) {
-		dispatch({ type: SENDCODE_FAIL });
-	}
-};
+import { ROOT_URL } from '../appUtils/puppet';
 
 export const verifyAuth = () => dispatch => {
 	firebase.auth().onAuthStateChanged(user => {
@@ -49,17 +24,34 @@ export const verifyAuth = () => dispatch => {
 	});
 };
 
+export const getCode = phone => async dispatch => {
+	dispatch({ type: AUTH_USER_ACTION });
+	return retrieveCode('/newUserOneTimePassword', phone, dispatch);
+};
+
 export const anotherCode = () => async (dispatch, getState) => {
+	dispatch({ type: AUTH_USER_ACTION });
+	const { phone } = getState().auth;
+	return retrieveCode('/requestOneTimePassword', phone, dispatch);
+};
+
+export const sendCode = code => async (dispatch, getState) => {
+	dispatch({ type: AUTH_USER_ACTION });
 	const { phone } = getState().auth;
 	try {
-		await axios.post(`${ROOT_URL}/requestOneTimePassword`, { phone });
-		dispatch({ type: GETCODE_SUCCESS, payload: phone });
+		let { data } = await axios.post(`${ROOT_URL}/verifyOneTimePassword`, {
+			phone,
+			code
+		});
+		firebase.auth().signInWithCustomToken(data.token);
+		dispatch({ type: SENDCODE_SUCCESS });
 	} catch (err) {
-		dispatch({ type: GETCODE_FAIL });
+		dispatch({ type: SENDCODE_FAIL });
 	}
 };
 
-export const setUsername = username => (dispatch, getState) => {
+export const setUsername = username => dispatch => {
+	dispatch({ type: AUTH_USER_ACTION });
 	if (!username) {
 		return dispatch({ type: SETUSERNAME_FAIL });
 	}
@@ -74,4 +66,13 @@ export const setUsername = username => (dispatch, getState) => {
 		.catch(err => {
 			dispatch({ type: SETUSERNAME_FAIL });
 		});
+};
+
+retrieveCode = async (path, phone, dispatch) => {
+	try {
+		await axios.post(`${ROOT_URL}${path}`, { phone });
+		dispatch({ type: GETCODE_SUCCESS, payload: phone });
+	} catch (err) {
+		dispatch({ type: GETCODE_FAIL });
+	}
 };
