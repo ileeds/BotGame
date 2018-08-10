@@ -4,6 +4,7 @@ import { FormLabel, FormInput, Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { sendCode, anotherCode } from '../actions';
 import { renderErrorAndLoading } from '../appUtils/renderFunctions';
+import NavigationService from '../appUtils/NavigationService';
 
 class SignInForm extends Component {
 	state = { code: '' };
@@ -27,7 +28,7 @@ class SignInForm extends Component {
 				/>
 
 				<Button
-					onPress={() => this.props.anotherCode()}
+					onPress={() => NavigationService.navigate('getCode')}
 					title="Get Another Code"
 				/>
 			</View>
@@ -42,5 +43,5 @@ const mapStateToProps = ({ auth }) => {
 
 export default connect(
 	mapStateToProps,
-	{ sendCode, anotherCode }
+	{ sendCode }
 )(SignInForm);

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
-import Root from './appUtils/Root';
 import MainNavigator from './appUtils/MainNavigator';
+import Root from './appUtils/Root';
 
-export default class App extends React.Component {
+export default class App extends Component {
 	render() {
 		return (
 			<Root>

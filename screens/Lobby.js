@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import requireAuth from '../components/requireAuth';
 
 class Lobby extends Component {
 	render() {
@@ -8,4 +7,4 @@ class Lobby extends Component {
 	}
 }
 
-export default requireAuth(Lobby);
+export default Lobby;

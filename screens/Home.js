@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import requireAuth from '../components/requireAuth';
 import HomeHeader from '../components/HomeHeader';
 
 class Home extends Component {
@@ -13,4 +12,4 @@ class Home extends Component {
 	}
 }
 
-export default requireAuth(Home);
+export default Home;

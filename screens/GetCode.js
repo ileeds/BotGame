@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import SignUpForm from '../components/SignUpForm';
 import WelcomeHeader from '../components/WelcomeHeader';
 
-class SendCode extends Component {
+class GetCode extends Component {
 	render() {
 		return (
 			<View>
@@ -14,4 +14,4 @@ class SendCode extends Component {
 	}
 }
 
-export default SendCode;
+export default GetCode;

@@ -1,5 +1,6 @@
 import firebase from '../config/firebase';
 import axios from 'axios';
+import NavigationService from '../appUtils/NavigationService';
 
 import {
 	AUTH_USER_ACTION,
@@ -24,15 +25,14 @@ export const verifyAuth = () => dispatch => {
 	});
 };
 
-export const getCode = phone => async dispatch => {
+export const getCode = phone => async (dispatch, getState) => {
 	dispatch({ type: AUTH_USER_ACTION });
-	return retrieveCode('/newUserOneTimePassword', phone, dispatch);
-};
+	const statePhone = getState().auth.phone;
+	if (statePhone) {
+		return retrieveCode('/requestOneTimePassword', statePhone, dispatch);
+	}
 
-export const anotherCode = () => async (dispatch, getState) => {
-	dispatch({ type: AUTH_USER_ACTION });
-	const { phone } = getState().auth;
-	return retrieveCode('/requestOneTimePassword', phone, dispatch);
+	return retrieveCode('/newUserOneTimePassword', phone, dispatch);
 };
 
 export const sendCode = code => async (dispatch, getState) => {
@@ -45,6 +45,7 @@ export const sendCode = code => async (dispatch, getState) => {
 		});
 		firebase.auth().signInWithCustomToken(data.token);
 		dispatch({ type: SENDCODE_SUCCESS });
+		NavigationService.navigate('username');
 	} catch (err) {
 		dispatch({ type: SENDCODE_FAIL });
 	}
@@ -62,6 +63,7 @@ export const setUsername = username => dispatch => {
 		})
 		.then(() => {
 			dispatch({ type: SETUSERNAME_SUCCESS, payload: username });
+			NavigationService.navigate('home');
 		})
 		.catch(err => {
 			dispatch({ type: SETUSERNAME_FAIL });
@@ -72,6 +74,7 @@ retrieveCode = async (path, phone, dispatch) => {
 	try {
 		await axios.post(`${ROOT_URL}${path}`, { phone });
 		dispatch({ type: GETCODE_SUCCESS, payload: phone });
+		NavigationService.navigate('enterCode');
 	} catch (err) {
 		dispatch({ type: GETCODE_FAIL });
 	}

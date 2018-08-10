@@ -1,7 +1,11 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
 	createBottomTabNavigator,
 	createStackNavigator
 } from 'react-navigation';
+import { getInitialScreen } from '../actions';
+import NavigationService from './NavigationService';
 
 import AddFriends from '../screens/AddFriends';
 import Anonymous from '../screens/Anonymous';
@@ -12,15 +16,15 @@ import Lobby from '../screens/Lobby';
 import NonAnonymous from '../screens/NonAnonymous';
 import Result from '../screens/Result';
 import Splash from '../screens/Splash';
-import SendCode from '../screens/SendCode';
+import GetCode from '../screens/GetCode';
 import Username from '../screens/Username';
 
-export default createStackNavigator(
+const Nav = createStackNavigator(
 	{
 		splash: Splash,
 		start: createBottomTabNavigator(
 			{
-				sendCode: SendCode,
+				getCode: GetCode,
 				enterCode: EnterCode,
 				username: Username,
 				main: createBottomTabNavigator({
@@ -46,3 +50,24 @@ export default createStackNavigator(
 		headerMode: 'none'
 	}
 );
+
+class MainNavigator extends React.Component {
+	componentDidMount() {
+		this.props.getInitialScreen();
+	}
+
+	render() {
+		return (
+			<Nav
+				ref={navigatorRef => {
+					NavigationService.setTopLevelNavigator(navigatorRef);
+				}}
+			/>
+		);
+	}
+}
+
+export default connect(
+	null,
+	{ getInitialScreen }
+)(MainNavigator);

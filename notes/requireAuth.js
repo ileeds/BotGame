@@ -14,11 +14,7 @@ export default ChildComponent => {
 		shouldNavigateAway() {
 			if (!this.props.loggedIn) {
 				this.props.navigation.pop();
-				if (this.props.phone) {
-					this.props.navigation.navigate('enterCode');
-				} else {
-					this.props.navigation.navigate('sendCode');
-				}
+				this.props.navigation.navigate('getCode');
 			}
 		}
 

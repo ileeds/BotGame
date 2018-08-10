@@ -6,7 +6,7 @@ import { getCode } from '../actions';
 import { renderErrorAndLoading } from '../appUtils/renderFunctions';
 
 class SignUpForm extends Component {
-	state = { phone: '' };
+	state = { phone: this.props.phone };
 
 	render() {
 		return (
@@ -21,7 +21,10 @@ class SignUpForm extends Component {
 					/>
 				</View>
 				<Button
-					onPress={() => this.props.getCode(this.state.phone)}
+					onPress={() => {
+						const phone = this.state.phone;
+						this.props.getCode(phone);
+					}}
 					title="Submit"
 				/>
 			</View>
@@ -30,8 +33,8 @@ class SignUpForm extends Component {
 }
 
 const mapStateToProps = ({ auth }) => {
-	const { error, loading } = auth;
-	return { error, loading };
+	const { phone, error, loading } = auth;
+	return { phone, error, loading };
 };
 
 export default connect(
