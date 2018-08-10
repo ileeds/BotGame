@@ -9,7 +9,9 @@ const initialState = {
 	auth: {
 		phone: null,
 		loggedIn: false,
-		username: null
+		username: null,
+		error: '',
+		loading: false
 	}
 };
 

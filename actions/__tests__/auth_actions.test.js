@@ -1,17 +1,8 @@
 import moxios from 'moxios';
-import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 import firebase from '../../config/firebase';
-import {
-	verifyAuth,
-	getCode,
-	anotherCode,
-	sendCode,
-	setUsername
-} from '../auth_actions';
+import { verifyAuth, getCode, sendCode, setUsername } from '../auth_actions';
 import { LOGIN_SUCCESS, LOGIN_FAIL } from '../types';
 import { initialProps, updateStore } from '../../testUtils/test_props';
-import { ROOT_URL } from '../../appUtils/puppet';
 
 const { navigation, initialState, store } = initialProps();
 
@@ -43,12 +34,11 @@ describe('authActions', () => {
 		const phone = '111-111-1111';
 		moxios.wait(() => {
 			const request = moxios.requests.mostRecent();
+			expect(request.url.includes('newUserOneTimePassword')).toBe(true);
 			request.respondWith({ status: 200 });
 		});
 		await store.dispatch(getCode(phone));
-		setTimeout(() => {
-			expect(store.getState().auth.phone).toBe(phone);
-		});
+		expect(store.getState().auth.phone).toBe(phone);
 		done();
 	});
 
@@ -57,12 +47,11 @@ describe('authActions', () => {
 		store = updateStore('phone', phone);
 		moxios.wait(() => {
 			const request = moxios.requests.mostRecent();
+			expect(request.url.includes('requestOneTimePassword')).toBe(true);
 			request.respondWith({ status: 200 });
 		});
-		await store.dispatch(anotherCode());
-		setTimeout(() => {
-			expect(store.getState().auth.phone).toBe(phone);
-		});
+		await store.dispatch(getCode(phone));
+		expect(store.getState().auth.phone).toBe(phone);
 		done();
 	});
 
@@ -85,9 +74,7 @@ describe('authActions', () => {
 			});
 		});
 		await store.dispatch(sendCode(code));
-		setTimeout(() => {
-			expect(signInWithCustomToken.mock.calls[0][0]).toBe(token);
-		});
+		expect(signInWithCustomToken.mock.calls[0][0]).toBe(token);
 		done();
 	});
 
@@ -105,9 +92,7 @@ describe('authActions', () => {
 
 		const username = 'user123';
 		await store.dispatch(setUsername(username));
-		setTimeout(() => {
-			expect(store.getState().auth.username).toBe(username);
-		});
+		expect(store.getState().auth.username).toBe(username);
 		done();
 	});
 });

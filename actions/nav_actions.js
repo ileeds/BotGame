@@ -9,6 +9,6 @@ export const getInitialScreen = () => (dispatch, getState) => {
 	} else if (!auth.username) {
 		NavigationService.navigate('username');
 	} else {
-		NavigationService.navigate('main');
+		NavigationService.navigate('home');
 	}
 };
