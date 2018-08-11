@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { FormLabel, FormInput, Button } from 'react-native-elements';
+import { FormLabel, FormInput } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { getCode } from '../actions';
 import { renderErrorAndLoading } from '../appUtils/renderFunctions';
+import { CardSection, Input, Button } from './common';
 
 class SignUpForm extends Component {
 	state = { phone: this.props.phone };
@@ -11,22 +12,25 @@ class SignUpForm extends Component {
 	render() {
 		return (
 			<View>
-				{renderErrorAndLoading(this.props.error, this.props.loading)}
-				<View style={{ marginBottom: 10 }}>
-					<FormLabel>Enter Phone Number</FormLabel>
-					<FormInput
-						value={this.state.phone}
+				<CardSection>
+					<Input
+						label="Phone"
+						placeholder="111-111-1111"
 						onChangeText={phone => this.setState({ phone })}
+						value={this.state.phone}
 						keyboardType={'phone-pad'}
 					/>
-				</View>
+				</CardSection>
+
 				<Button
 					onPress={() => {
-						const phone = this.state.phone;
-						this.props.getCode(phone);
+						this.props.getCode(this.state.phone);
 					}}
-					title="Submit"
-				/>
+				>
+					Submit
+				</Button>
+
+				{renderErrorAndLoading(this.props.error, this.props.loading)}
 			</View>
 		);
 	}

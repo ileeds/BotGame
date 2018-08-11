@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 
-class AddFriends extends Component {
+class Friends extends Component {
 	render() {
 		return <View />;
 	}
 }
 
-export default AddFriends;
+export default Friends;

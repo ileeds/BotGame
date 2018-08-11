@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { FormLabel, FormInput, Button } from 'react-native-elements';
+import { FormLabel, FormInput } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { sendCode, anotherCode } from '../actions';
 import { renderErrorAndLoading } from '../appUtils/renderFunctions';
 import NavigationService from '../appUtils/NavigationService';
+import { CardSection, Input, Button } from './common';
 
 class SignInForm extends Component {
 	state = { code: '' };
@@ -12,25 +13,25 @@ class SignInForm extends Component {
 	render() {
 		return (
 			<View>
-				{renderErrorAndLoading(this.props.error, this.props.loading)}
-				<View style={{ marginBottom: 10 }}>
-					<FormLabel>Enter Code</FormLabel>
-					<FormInput
-						value={this.state.code}
+				<CardSection>
+					<Input
+						label="Code"
+						placeholder="1111"
 						onChangeText={code => this.setState({ code })}
+						value={this.state.code}
 						keyboardType={'phone-pad'}
 					/>
-				</View>
+				</CardSection>
 
-				<Button
-					onPress={() => this.props.sendCode(this.state.code)}
-					title="Submit"
-				/>
+				<Button onPress={() => this.props.sendCode(this.state.code)}>
+					Submit
+				</Button>
 
-				<Button
-					onPress={() => NavigationService.navigate('getCode')}
-					title="Get Another Code"
-				/>
+				<Button onPress={() => NavigationService.navigate('getCode')}>
+					Get Another Code
+				</Button>
+
+				{renderErrorAndLoading(this.props.error, this.props.loading)}
 			</View>
 		);
 	}

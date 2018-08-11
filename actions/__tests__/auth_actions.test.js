@@ -55,6 +55,18 @@ describe('authActions', () => {
 		done();
 	});
 
+	it('gets another code new phone', async done => {
+		moxios.wait(() => {
+			const request = moxios.requests.mostRecent();
+			expect(request.url.includes('newUserOneTimePassword')).toBe(true);
+			request.respondWith({ status: 200 });
+		});
+		const otherPhone = '222-222-2222';
+		await store.dispatch(getCode(otherPhone));
+		expect(store.getState().auth.phone).toBe(otherPhone);
+		done();
+	});
+
 	it('sends code', async done => {
 		const signInWithCustomToken = jest.fn();
 		jest.spyOn(firebase, 'auth').mockImplementation(() => {

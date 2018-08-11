@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
-import { Header } from 'react-native-elements';
 import { connect } from 'react-redux';
+import NavigationService from '../appUtils/NavigationService';
+import { Header, Button } from './common';
 
 class HomeHeader extends Component {
 	render() {
 		return (
-			<Header>
-				<Text style={styles.textStyle}>Welcome, {this.props.username}!</Text>
+			<Header headerText={'Welcome, ' + this.props.username + '!'}>
+				<Button
+					onPress={() => NavigationService.navigate('friends')}
+					buttonSmall
+				>
+					Friends >
+				</Button>
 			</Header>
 		);
 	}

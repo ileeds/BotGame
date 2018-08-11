@@ -28,7 +28,7 @@ export const verifyAuth = () => dispatch => {
 export const getCode = phone => async (dispatch, getState) => {
 	dispatch({ type: AUTH_USER_ACTION });
 	const statePhone = getState().auth.phone;
-	if (statePhone) {
+	if (statePhone == phone) {
 		return retrieveCode('/requestOneTimePassword', statePhone, dispatch);
 	}
 

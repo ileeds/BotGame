@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { FormLabel, FormInput, Button } from 'react-native-elements';
+import { FormLabel, FormInput } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { setUsername } from '../actions';
 import { renderErrorAndLoading } from '../appUtils/renderFunctions';
+import { CardSection, Input, Button } from './common';
 
 class UsernameForm extends Component {
 	state = { username: '' };
@@ -11,18 +12,20 @@ class UsernameForm extends Component {
 	render() {
 		return (
 			<View>
-				{renderErrorAndLoading(this.props.error, this.props.loading)}
-				<View style={{ marginBottom: 10 }}>
-					<FormLabel>Enter Username</FormLabel>
-					<FormInput
-						value={this.state.username}
+				<CardSection>
+					<Input
+						label="Username"
+						placeholder="User123"
 						onChangeText={username => this.setState({ username })}
+						value={this.state.username}
 					/>
-				</View>
-				<Button
-					onPress={() => this.props.setUsername(this.state.username)}
-					title="Submit"
-				/>
+				</CardSection>
+
+				<Button onPress={() => this.props.setUsername(this.state.username)}>
+					Submit
+				</Button>
+
+				{renderErrorAndLoading(this.props.error, this.props.loading)}
 			</View>
 		);
 	}

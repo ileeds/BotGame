@@ -7,7 +7,7 @@ import {
 import { getInitialScreen } from '../actions';
 import NavigationService from './NavigationService';
 
-import AddFriends from '../screens/AddFriends';
+import Friends from '../screens/Friends';
 import Anonymous from '../screens/Anonymous';
 import EnterCode from '../screens/EnterCode';
 import Home from '../screens/Home';
@@ -29,8 +29,8 @@ const Nav = createStackNavigator(
 				username: Username,
 				main: createBottomTabNavigator({
 					home: Home,
+					friends: Friends,
 					inviteFriends: InviteFriends,
-					addFriends: AddFriends,
 					lobby: Lobby,
 					game: createBottomTabNavigator({
 						anonymous: Anonymous,
