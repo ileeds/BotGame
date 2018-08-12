@@ -3,10 +3,8 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 import CodeInput from 'react-native-confirmation-code-input';
 import { sendCode } from '../actions';
-import {
-	renderButton,
-	renderErrorAndLoading
-} from '../appUtils/renderFunctions';
+import { renderErrorAndLoading } from '../appUtils/renderFunctions';
+import ButtonLarge from './ButtonLarge';
 import NavigationService from '../appUtils/NavigationService';
 import { CardSection } from './common';
 import { backgroundColor } from '../appUtils/puppet';
@@ -29,10 +27,13 @@ class SignInForm extends Component {
 				</CardSection>
 
 				<CardSection>
-					{renderButton('Get Another Code', () => {
-						this.refs.codeInputRef.clear();
-						NavigationService.navigate('getCode');
-					})}
+					<ButtonLarge
+						text="Get Another Code"
+						onPress={() => {
+							this.refs.codeInputRef.clear();
+							NavigationService.navigate('getCode');
+						}}
+					/>
 				</CardSection>
 
 				{renderErrorAndLoading(this.props.error, this.props.loading)}

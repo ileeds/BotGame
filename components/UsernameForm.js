@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { setUsername } from '../actions';
-import {
-	renderButton,
-	renderErrorAndLoading
-} from '../appUtils/renderFunctions';
+import { renderErrorAndLoading } from '../appUtils/renderFunctions';
+import ButtonLarge from './ButtonLarge';
 import { CardSection, Input } from './common';
 import { backgroundColor } from '../appUtils/puppet';
 
@@ -25,9 +23,12 @@ class UsernameForm extends Component {
 				</CardSection>
 
 				<CardSection>
-					{renderButton('Submit', () => {
-						this.props.setUsername(this.state.username);
-					})}
+					<ButtonLarge
+						text="Submit"
+						onPress={() => {
+							this.props.setUsername(this.state.username);
+						}}
+					/>
 				</CardSection>
 
 				{renderErrorAndLoading(this.props.error, this.props.loading)}

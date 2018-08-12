@@ -1,13 +1,28 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Asset, AppLoading } from 'expo';
+import { StyleSheet, View, Alert } from 'react-native';
+import { Asset, AppLoading, Notifications } from 'expo';
 import MainNavigator from './appUtils/MainNavigator';
 import Root from './appUtils/Root';
+import registerForNotifications from './appUtils/push_notifications';
 
 export default class App extends Component {
 	state = {
 		isReady: false
 	};
+
+	componentDidMount() {
+		registerForNotifications();
+		Notifications.addListener(notification => {
+			const {
+				data: { text },
+				origin
+			} = notification;
+
+			if (origin === 'received' && text) {
+				Alert.alert('New Push Notification', text, [{ text: 'Ok' }]);
+			}
+		});
+	}
 
 	render() {
 		if (!this.state.isReady) {

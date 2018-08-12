@@ -3,10 +3,8 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 import PhoneInput from 'react-native-phone-input';
 import { getCode } from '../actions';
-import {
-	renderButton,
-	renderErrorAndLoading
-} from '../appUtils/renderFunctions';
+import { renderErrorAndLoading } from '../appUtils/renderFunctions';
+import ButtonLarge from './ButtonLarge';
 import { CardSection } from './common';
 import { backgroundColor } from '../appUtils/puppet';
 
@@ -37,9 +35,12 @@ class SignUpForm extends Component {
 				</CardSection>
 
 				<CardSection>
-					{renderButton('Submit', () => {
-						this.props.getCode(this.state.phone);
-					})}
+					<ButtonLarge
+						text="Submit"
+						onPress={() => {
+							this.props.getCode(this.state.phone);
+						}}
+					/>
 				</CardSection>
 
 				{renderErrorAndLoading(this.props.error, this.props.loading)}

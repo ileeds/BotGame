@@ -16,7 +16,8 @@ let styles = {
 		borderWidth: 0.1,
 		marginRight: 10,
 		marginLeft: 10,
-		backgroundColor: '#4D608B'
+		backgroundColor: '#4D608B',
+		width: 150
 	}
 };
 

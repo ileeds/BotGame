@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createStackNavigator } from 'react-navigation';
+import {
+	createStackNavigator,
+	createBottomTabNavigator
+} from 'react-navigation';
 import { getInitialScreen } from '../actions';
 import NavigationService from './NavigationService';
 
@@ -18,17 +21,21 @@ import Username from '../screens/Username';
 
 const Nav = createStackNavigator(
 	{
-		splash: Splash,
-		getCode: GetCode,
-		enterCode: EnterCode,
-		username: Username,
-		home: Home,
-		friends: Friends,
-		inviteFriends: InviteFriends,
-		lobby: Lobby,
-		anonymous: Anonymous,
-		nonAnonymous: NonAnonymous,
-		result: Result
+		start: createStackNavigator({
+			splash: Splash,
+			getCode: GetCode,
+			enterCode: EnterCode,
+			username: Username
+		}),
+		main: createStackNavigator({
+			home: Home,
+			friends: Friends,
+			inviteFriends: InviteFriends,
+			lobby: Lobby,
+			anonymous: Anonymous,
+			nonAnonymous: NonAnonymous,
+			result: Result
+		})
 	},
 	{
 		navigationOptions: {

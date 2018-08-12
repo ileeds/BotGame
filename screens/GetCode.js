@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import SignUpForm from '../components/SignUpForm';
-import WelcomeHeader from '../components/WelcomeHeader';
 
 class GetCode extends Component {
+	static navigationOptions = {
+		title: 'Enter Phone',
+		headerLeft: null
+	};
+
 	render() {
 		return (
 			<View style={{ flex: 1 }}>
-				<WelcomeHeader />
 				<SignUpForm />
 			</View>
 		);
