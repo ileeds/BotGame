@@ -1,40 +1,67 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { FormLabel, FormInput } from 'react-native-elements';
 import { connect } from 'react-redux';
+import PhoneInput from 'react-native-phone-input';
 import { getCode } from '../actions';
-import { renderErrorAndLoading } from '../appUtils/renderFunctions';
-import { CardSection, Input, Button } from './common';
+import {
+	renderButton,
+	renderErrorAndLoading
+} from '../appUtils/renderFunctions';
+import { CardSection } from './common';
+import { backgroundColor } from '../appUtils/puppet';
 
 class SignUpForm extends Component {
 	state = { phone: this.props.phone };
 
+	componentDidMount() {
+		this.phone.focus();
+	}
+
 	render() {
+		const { textStyle, phoneInputStyle } = styles;
 		return (
-			<View>
+			<View style={{ backgroundColor, flex: 1 }}>
+				<View style={{ flex: 0.5 }} />
 				<CardSection>
-					<Input
-						label="Phone"
-						placeholder="111-111-1111"
-						onChangeText={phone => this.setState({ phone })}
+					<PhoneInput
+						ref={ref => {
+							this.phone = ref;
+						}}
+						pickerItemStyle={{ fontSize: 30 }}
+						textStyle={textStyle}
+						flagStyle={{ width: 100, height: 60, borderWidth: 0 }}
+						onChangePhoneNumber={phone => this.setState({ phone })}
 						value={this.state.phone}
-						keyboardType={'phone-pad'}
+						style={phoneInputStyle}
 					/>
 				</CardSection>
 
-				<Button
-					onPress={() => {
+				<CardSection>
+					{renderButton('Submit', () => {
 						this.props.getCode(this.state.phone);
-					}}
-				>
-					Submit
-				</Button>
+					})}
+				</CardSection>
 
 				{renderErrorAndLoading(this.props.error, this.props.loading)}
+				<View style={{ flex: 2 }} />
 			</View>
 		);
 	}
 }
+
+const styles = {
+	textStyle: {
+		fontSize: 30,
+		color: 'white',
+		height: 100,
+		letterSpacing: 3
+	},
+	phoneInputStyle: {
+		position: 'relative',
+		marginRight: 20,
+		marginLeft: 20
+	}
+};
 
 const mapStateToProps = ({ auth }) => {
 	const { phone, error, loading } = auth;

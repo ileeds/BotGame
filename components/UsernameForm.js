@@ -1,31 +1,37 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { FormLabel, FormInput } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { setUsername } from '../actions';
-import { renderErrorAndLoading } from '../appUtils/renderFunctions';
-import { CardSection, Input, Button } from './common';
+import {
+	renderButton,
+	renderErrorAndLoading
+} from '../appUtils/renderFunctions';
+import { CardSection, Input } from './common';
+import { backgroundColor } from '../appUtils/puppet';
 
 class UsernameForm extends Component {
 	state = { username: '' };
 
 	render() {
 		return (
-			<View>
+			<View style={{ backgroundColor, flex: 1 }}>
+				<View style={{ flex: 0.5 }} />
 				<CardSection>
 					<Input
-						label="Username"
-						placeholder="User123"
+						placeholder="Username"
 						onChangeText={username => this.setState({ username })}
 						value={this.state.username}
 					/>
 				</CardSection>
 
-				<Button onPress={() => this.props.setUsername(this.state.username)}>
-					Submit
-				</Button>
+				<CardSection>
+					{renderButton('Submit', () => {
+						this.props.setUsername(this.state.username);
+					})}
+				</CardSection>
 
 				{renderErrorAndLoading(this.props.error, this.props.loading)}
+				<View style={{ flex: 2 }} />
 			</View>
 		);
 	}

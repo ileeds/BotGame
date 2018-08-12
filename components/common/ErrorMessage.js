@@ -8,7 +8,8 @@ const ErrorMessage = ({ error }) => {
 const styles = {
 	errorTextStyle: {
 		alignSelf: 'center',
-		color: 'red'
+		color: 'red',
+		fontSize: 16
 	}
 };
 

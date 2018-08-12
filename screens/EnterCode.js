@@ -6,7 +6,7 @@ import WelcomeHeader from '../components/WelcomeHeader';
 class EnterCode extends Component {
 	render() {
 		return (
-			<View>
+			<View style={{ flex: 1 }}>
 				<WelcomeHeader />
 				<SignInForm />
 			</View>

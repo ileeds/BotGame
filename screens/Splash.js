@@ -3,7 +3,7 @@ import { View } from 'react-native';
 
 class Splash extends Component {
 	render() {
-		return <View />;
+		return <View style={{ flex: 1 }} />;
 	}
 }
 

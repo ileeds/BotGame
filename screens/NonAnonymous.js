@@ -3,7 +3,7 @@ import { View } from 'react-native';
 
 class NonAnonymous extends Component {
 	render() {
-		return <View />;
+		return <View style={{ flex: 1 }} />;
 	}
 }
 

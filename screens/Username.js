@@ -6,7 +6,7 @@ import WelcomeHeader from '../components/WelcomeHeader';
 class Username extends Component {
 	render() {
 		return (
-			<View>
+			<View style={{ flex: 1 }}>
 				<WelcomeHeader />
 				<UsernameForm />
 			</View>
