@@ -1,5 +1,6 @@
 import firebase from '../config/firebase';
 import axios from 'axios';
+import { AsyncStorage } from 'react-native';
 import NavigationService from '../appUtils/NavigationService';
 
 import {
@@ -51,16 +52,17 @@ export const sendCode = code => async (dispatch, getState) => {
 	}
 };
 
-export const setUsername = username => dispatch => {
+export const setUsername = username => async (dispatch, getState) => {
 	dispatch({ type: AUTH_USER_ACTION });
 	if (!username) {
 		return dispatch({ type: SETUSERNAME_FAIL });
 	}
-	const user = firebase.auth().currentUser;
-	user
-		.updateProfile({
-			username
-		})
+	const { phone } = getState().auth;
+	const pushToken = await AsyncStorage.getItem('push_token');
+	firebase
+		.database()
+		.ref(`users/${phone}`)
+		.update({ username, pushToken })
 		.then(() => {
 			dispatch({ type: SETUSERNAME_SUCCESS, payload: username });
 			NavigationService.navigate('home');

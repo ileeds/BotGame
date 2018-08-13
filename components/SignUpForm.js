@@ -38,7 +38,9 @@ class SignUpForm extends Component {
 					<ButtonLarge
 						text="Submit"
 						onPress={() => {
-							this.props.getCode(this.state.phone);
+							this.props.getCode(
+								String(this.state.phone).replace(/[^\d]/g, '')
+							);
 						}}
 					/>
 				</CardSection>

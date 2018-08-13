@@ -28,7 +28,6 @@ describe('Auth Flow', () => {
 			</Root>
 		);
 		store.dispatch(getInitialScreen());
-		console.log(wrapped.debug());
 	});
 });
 

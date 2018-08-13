@@ -44,7 +44,10 @@ export default class App extends Component {
 	}
 
 	async _cacheResourcesAsync() {
-		const images = [require('./assets/logo.png')];
+		const images = [
+			require('./assets/logo.png'),
+			require('./assets/icons8-add-user-male-50.png')
+		];
 
 		const cacheImages = images.map(image => {
 			return Asset.fromModule(image).downloadAsync();
