@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, Image } from 'react-native';
-import { Container, Header, Content, List, ListItem, Text } from 'native-base';
+import { View } from 'react-native';
+import { Container, Content, List, ListItem, Text } from 'native-base';
 import { Contacts } from 'expo';
 import { CardSection, Spinner } from './common';
+import FriendItem from './FriendItem';
 
 class InviteFriendsBody extends Component {
 	state = {
@@ -84,16 +85,7 @@ class InviteFriendsBody extends Component {
 			dbDigit = dbDigit.length < 11 ? `1${dbDigit}` : dbDigit;
 
 			if (dbDigit.length == 11) {
-				return (
-					<ListItem style={{ flex: 1 }} key={id}>
-						<Text style={{ flex: 1 }}>{name}</Text>
-						<Text style={{ flex: 1 }}>{dbDigit}</Text>
-						<Image
-							source={require('../assets/icons8-add-user-male-50.png')}
-							style={{ width: 24, height: 24 }}
-						/>
-					</ListItem>
-				);
+				return <FriendItem key={id} name={name} dbDigit={dbDigit} />;
 			}
 		});
 	}

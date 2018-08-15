@@ -21,14 +21,14 @@ const HomeBody = () => {
 			<CardSection style={availableContainerStyle}>
 				<ButtonLarge
 					onPress={() => NavigationService.navigate('inviteFriends')}
-					text="Local Play"
+					text="PLAY WITH FRIENDS"
 				/>
 			</CardSection>
 			<CardSection style={unavailableContainerStyle}>
-				<ButtonLarge text="Online Play" />
+				<ButtonLarge text="RANDOM GAME" />
 			</CardSection>
 			<CardSection style={donateContainerStyle}>
-				<ButtonLarge text="Donate" />
+				<ButtonLarge text="DONATE" />
 			</CardSection>
 			<View style={{ flex: 0.5, backgroundColor }} />
 		</View>

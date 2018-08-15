@@ -7,3 +7,7 @@ export const LOGIN_SUCCESS = 'login_success';
 export const LOGIN_FAIL = 'login_fail';
 export const SETUSERNAME_SUCCESS = 'setusername_success';
 export const SETUSERNAME_FAIL = 'setusername_fail';
+export const SENDINVITE_SUCCESS = 'sendinvite_success';
+export const SENDINVITE_FAIL = 'sendinvite_fail';
+export const UPDATEINVITES_SUCCESS = 'updateinvites_success';
+export const UPDATEINVITES_FAIL = 'updateinvites_fail';
