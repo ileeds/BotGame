@@ -1,67 +1,69 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, Alert } from 'react-native';
-import { Asset, AppLoading, Notifications } from 'expo';
-import FlashMessage from 'react-native-flash-message';
-import MainNavigator from './appUtils/MainNavigator';
-import Root from './appUtils/Root';
-import registerForNotifications from './appUtils/push_notifications';
+import React, { Component } from "react";
+import { StyleSheet, View, Alert } from "react-native";
+import { Asset, AppLoading, Notifications } from "expo";
+import FlashMessage from "react-native-flash-message";
+import MainNavigator from "./appUtils/MainNavigator";
+import Root from "./appUtils/Root";
+import registerForNotifications from "./appUtils/push_notifications";
 
 export default class App extends Component {
-	state = {
-		isReady: false
-	};
+  state = {
+    isReady: false
+  };
 
-	componentDidMount() {
-		registerForNotifications();
-		Notifications.addListener(notification => {
-			const {
-				data: { text },
-				origin
-			} = notification;
+  componentDidMount() {
+    registerForNotifications();
+    Notifications.addListener(notification => {
+      const {
+        data: { text },
+        origin
+      } = notification;
 
-			if (origin === 'received' && text) {
-				Alert.alert('New Push Notification', text, [{ text: 'Ok' }]);
-			}
-		});
-	}
+      if (origin === "received" && text) {
+        Alert.alert("New Push Notification", text, [{ text: "Ok" }]);
+      }
+    });
+  }
 
-	render() {
-		if (!this.state.isReady) {
-			return (
-				<AppLoading
-					startAsync={this._cacheResourcesAsync}
-					onFinish={() => this.setState({ isReady: true })}
-					onError={console.warn}
-				/>
-			);
-		}
-		return (
-			<Root>
-				<View style={styles.container}>
-					<MainNavigator />
-				</View>
-				<FlashMessage position="top" />
-			</Root>
-		);
-	}
+  render() {
+    if (!this.state.isReady) {
+      return (
+        <AppLoading
+          startAsync={this._cacheResourcesAsync}
+          onFinish={() => this.setState({ isReady: true })}
+          onError={console.warn}
+        />
+      );
+    }
+    return (
+      <Root>
+        <View style={styles.container}>
+          <MainNavigator />
+        </View>
+        <FlashMessage position="top" />
+      </Root>
+    );
+  }
 
-	async _cacheResourcesAsync() {
-		const images = [
-			require('./assets/logo.png'),
-			require('./assets/icons8-add-user-male-50.png'),
-			require('./assets/icons8-historical-filled-50.png')
-		];
+  async _cacheResourcesAsync() {
+    const images = [
+      require("./assets/logo.png"),
+      require("./assets/icons8-add-user-male-52.png"),
+      require("./assets/icons8-historical-filled-100.png"),
+      require("./assets/icons8-invite-96.png"),
+      require("./assets/icons8-friends-96.png")
+    ];
 
-		const cacheImages = images.map(image => {
-			return Asset.fromModule(image).downloadAsync();
-		});
-		return Promise.all(cacheImages);
-	}
+    const cacheImages = images.map(image => {
+      return Asset.fromModule(image).downloadAsync();
+    });
+    return Promise.all(cacheImages);
+  }
 }
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		justifyContent: 'space-around'
-	}
+  container: {
+    flex: 1,
+    justifyContent: "space-around"
+  }
 });
