@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { View } from 'react-native';
 import { Container, Content, List, ListItem, Text } from 'native-base';
 import { Contacts } from 'expo';
+import PhoneInput from 'react-native-phone-input';
 import { CardSection, Spinner } from './common';
 import FriendItem from './FriendItem';
+import InviteFriendButton from './InviteFriendButton';
+import { invite, getInvites } from '../actions/network_actions';
 
 class InviteFriendsBody extends Component {
 	state = {
 		isReady: false,
-		data: {}
+		data: {},
+		phone: null
 	};
 
 	async componentWillMount() {
-		const alphaData = {
+		this.props.getInvites();
+
+		let alphaData = {
 			A: [],
 			B: [],
 			C: [],
@@ -58,6 +65,14 @@ class InviteFriendsBody extends Component {
 			}
 		});
 
+		for (let val in alphaData) {
+			alphaData[val].sort((a, b) => {
+				var nameA = a.name;
+				var nameB = b.name;
+				return nameA < nameB ? -1 : nameA > nameB ? 1 : 0;
+			});
+		}
+
 		this.setState({ data: alphaData, isReady: true });
 	}
 
@@ -85,7 +100,19 @@ class InviteFriendsBody extends Component {
 			dbDigit = dbDigit.length < 11 ? `1${dbDigit}` : dbDigit;
 
 			if (dbDigit.length == 11) {
-				return <FriendItem key={id} name={name} dbDigit={dbDigit} />;
+				if (this.props.invites.includes(dbDigit)) {
+					return (
+						<FriendItem
+							key={id}
+							name={name}
+							dbDigit={dbDigit}
+							status={'invited'}
+						/>
+					);
+				}
+				return (
+					<FriendItem key={id} name={name} dbDigit={dbDigit} status={'none'} />
+				);
 			}
 		});
 	}
@@ -100,7 +127,27 @@ class InviteFriendsBody extends Component {
 		}
 		return (
 			<View style={{ flex: 1 }}>
-				<Container>
+				<CardSection style={{ flex: 1 }}>
+					<PhoneInput
+						onPressFlag={() => {}}
+						onChangePhoneNumber={phone => this.setState({ phone })}
+						value={this.state.phone}
+						textStyle={{ fontSize: 15 }}
+						style={{
+							position: 'relative',
+							marginRight: 20,
+							marginLeft: 20
+						}}
+					/>
+					<InviteFriendButton
+						style={{ marginRight: 40 }}
+						onPress={() => {
+							this.props.invite(String(this.state.phone).replace(/[^\d]/g, ''));
+							this.props.getInvites();
+						}}
+					/>
+				</CardSection>
+				<Container style={{ flex: 6 }}>
 					<Content>
 						<List>{this.renderContacts()}</List>
 					</Content>
@@ -110,4 +157,12 @@ class InviteFriendsBody extends Component {
 	}
 }
 
-export default InviteFriendsBody;
+const mapStateToProps = ({ network }) => {
+	const { invites } = network;
+	return { invites };
+};
+
+export default connect(
+	mapStateToProps,
+	{ invite, getInvites }
+)(InviteFriendsBody);

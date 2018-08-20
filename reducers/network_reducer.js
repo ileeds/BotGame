@@ -1,4 +1,8 @@
+import { showMessage } from 'react-native-flash-message';
+
 import {
+	GETINVITES_SUCCESS,
+	GETINVITES_FAIL,
 	SENDINVITE_SUCCESS,
 	SENDINVITE_FAIL,
 	UPDATEINVITES_SUCCESS,
@@ -13,7 +17,13 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		case UPDATEINVITES_SUCCESS:
-			return { ...state, invites: [...state.invites, action.payload] };
+			showMessage({
+				message: 'Invitation sent',
+				type: 'info'
+			});
+			return state;
+		case GETINVITES_SUCCESS:
+			return { ...state, invites: action.payload };
 		default:
 			return state;
 	}

@@ -25,6 +25,7 @@ class SignUpForm extends Component {
 						ref={ref => {
 							this.phone = ref;
 						}}
+						onPressFlag={() => {}}
 						pickerItemStyle={{ fontSize: 30 }}
 						textStyle={textStyle}
 						flagStyle={{ width: 100, height: 60, borderWidth: 0 }}

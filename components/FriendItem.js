@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Image, TouchableOpacity } from 'react-native';
+import { Image } from 'react-native';
 import { ListItem, Text } from 'native-base';
-import { invite } from '../actions/network_actions';
+import { invite, getInvites } from '../actions/network_actions';
+import InviteFriendButton from './InviteFriendButton';
 
 class FriendsItem extends Component {
 	renderIcon() {
-		if (this.props.invites.includes(this.props.dbDigit)) {
+		if (this.props.status === 'invited') {
 			return (
 				<Image
 					source={require('../assets/icons8-historical-filled-50.png')}
@@ -15,16 +16,12 @@ class FriendsItem extends Component {
 			);
 		}
 		return (
-			<TouchableOpacity
+			<InviteFriendButton
 				onPress={() => {
 					this.props.invite(this.props.dbDigit);
+					this.props.getInvites();
 				}}
-			>
-				<Image
-					source={require('../assets/icons8-add-user-male-50.png')}
-					style={{ width: 24, height: 24 }}
-				/>
-			</TouchableOpacity>
+			/>
 		);
 	}
 
@@ -39,12 +36,7 @@ class FriendsItem extends Component {
 	}
 }
 
-const mapStateToProps = ({ network }) => {
-	const { invites } = network;
-	return { invites };
-};
-
 export default connect(
-	mapStateToProps,
-	{ invite }
+	null,
+	{ invite, getInvites }
 )(FriendsItem);

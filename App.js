@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Alert } from 'react-native';
 import { Asset, AppLoading, Notifications } from 'expo';
+import FlashMessage from 'react-native-flash-message';
 import MainNavigator from './appUtils/MainNavigator';
 import Root from './appUtils/Root';
 import registerForNotifications from './appUtils/push_notifications';
@@ -39,6 +40,7 @@ export default class App extends Component {
 				<View style={styles.container}>
 					<MainNavigator />
 				</View>
+				<FlashMessage position="top" />
 			</Root>
 		);
 	}
