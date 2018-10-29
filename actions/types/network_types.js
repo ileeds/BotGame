@@ -1,14 +1,7 @@
-export const AUTH_USER_ACTION = "auth_user_action";
-export const GETCODE_SUCCESS = "getcode_success";
-export const GETCODE_FAIL = "getcode_fail";
-export const SENDCODE_SUCCESS = "sendcode_success";
-export const SENDCODE_FAIL = "sendcode_fail";
-export const LOGIN_SUCCESS = "login_success";
-export const LOGIN_FAIL = "login_fail";
-export const SETUSERNAME_SUCCESS = "setusername_success";
-export const SETUSERNAME_FAIL = "setusername_fail";
 export const GETNETWORK_SUCCESS = "getnetwork_success";
 export const GETNETWORK_FAIL = "getnetwork_fail";
+export const GETONLINE_SUCCESS = "getonline_success";
+export const GETONLINE_FAIL = "getonline_fail";
 export const SENDINVITE_SUCCESS = "sendinvite_success";
 export const SENDINVITE_FAIL = "sendinvite_fail";
 export const UPDATEINVITES_SUCCESS = "updateinvites_success";

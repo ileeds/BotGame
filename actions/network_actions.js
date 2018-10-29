@@ -4,6 +4,8 @@ import axios from "axios";
 import {
   GETNETWORK_SUCCESS,
   GETNETWORK_FAIL,
+  GETONLINE_SUCCESS,
+  GETONLINE_FAIL,
   SENDINVITE_SUCCESS,
   SENDINVITE_FAIL,
   UPDATEINVITES_SUCCESS,
@@ -28,6 +30,7 @@ export const accept = (phoneTo, nameTo) => (dispatch, getState) => {
       dispatch({ type: UPDATENETWORK_SUCCESS });
     })
     .catch(err => {
+      console.error(err);
       dispatch({ type: UPDATENETWORK_FAIL });
     });
 };
@@ -40,7 +43,11 @@ export const invite = (phoneTo, nameTo) => (dispatch, getState) => {
     .once("value", async snapshot => {
       await axios.post("https://exp.host/--/api/v2/push/send", {
         to: snapshot.val(),
-        data: { text: "Hi" }
+        data: {
+          text: `${username} has sent you a friend invitation`,
+          phone,
+          username
+        }
       });
     })
     .then(() => {
@@ -49,7 +56,7 @@ export const invite = (phoneTo, nameTo) => (dispatch, getState) => {
         [`network/${phone}/sent/${phoneTo}`]: nameTo,
         [`network/${phoneTo}/received/${phone}`]: username
       };
-      const inviteRef = firebase
+      firebase
         .database()
         .ref()
         .update(updateObject)
@@ -57,10 +64,12 @@ export const invite = (phoneTo, nameTo) => (dispatch, getState) => {
           dispatch({ type: UPDATEINVITES_SUCCESS });
         })
         .catch(err => {
+          console.error(err);
           dispatch({ type: UPDATEINVITES_FAIL });
         });
     })
     .catch(err => {
+      console.error(err);
       dispatch({ type: SENDINVITE_FAIL });
     });
 };
@@ -73,12 +82,33 @@ export const getNetwork = () => async (dispatch, getState) => {
     .ref(`network/${phone}`)
     .on("value", snapshot => {
       if (snapshot.exists()) {
-        console.log(snapshot.val());
         network = snapshot.val();
       }
       dispatch({ type: GETNETWORK_SUCCESS, payload: network });
+      dispatch(getOnline());
     })
     .catch(err => {
+      console.error(err);
       dispatch({ type: GETNETWORK_FAIL });
     });
+};
+
+export const getOnline = () => async (dispatch, getState) => {
+  const { invites } = getState().network;
+  for (const [key, value] of Object.entries(invites)) {
+    const number = Object.keys(value);
+    firebase
+      .database()
+      .ref(`users/${number}/online`)
+      .on("value", snapshot => {
+        dispatch({
+          type: GETONLINE_SUCCESS,
+          payload: { [number]: snapshot.val() }
+        });
+      })
+      .catch(err => {
+        console.error(err);
+        dispatch({ type: GETONLINE_FAIL });
+      });
+  }
 };

@@ -2,43 +2,56 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Image } from "react-native";
 import { ListItem, Text } from "native-base";
-import { accept, invite } from "../actions/network_actions";
+import { addToGame, accept, invite } from "../actions";
 import FriendButton from "./FriendButton";
 
 class FriendsItem extends Component {
   renderIcon() {
-    if (this.props.status === "invited") {
-      return (
-        <Image
-          source={require("../assets/icons8-historical-filled-100.png")}
-          style={{ width: 24, height: 24 }}
-        />
-      );
-    } else if (this.props.status === "accept") {
-      return (
-        <FriendButton
-          onPress={() => {
-            this.props.accept(this.props.dbDigit, this.props.name);
-          }}
-          status="accept"
-        />
-      );
-    } else if (this.props.status === "friend") {
-      return (
-        <Image
-          source={require("../assets/icons8-friends-96.png")}
-          style={{ width: 24, height: 24 }}
-        />
-      );
-    } else {
-      return (
-        <FriendButton
-          onPress={() => {
-            this.props.invite(this.props.dbDigit, this.props.name);
-          }}
-          status="invite"
-        />
-      );
+    switch (this.props.status) {
+      case "invited":
+        return (
+          <Image
+            source={require("../assets/icons8-historical-filled-100.png")}
+            style={{ width: 24, height: 24 }}
+          />
+        );
+      case "accept":
+        return (
+          <FriendButton
+            onPress={() => {
+              this.props.accept(this.props.dbDigit, this.props.name);
+            }}
+            status="accept"
+          />
+        );
+      case "friend":
+        return (
+          <Image
+            source={require("../assets/icons8-friends-96.png")}
+            style={{ width: 24, height: 24 }}
+          />
+        );
+      case "add":
+        return (
+          <FriendButton
+            onPress={() => {
+              this.props.addToGame(this.props.dbDigit, this.props.name);
+            }}
+            status="add"
+            online={true}
+          />
+        );
+      case "wait":
+        return <FriendButton status="wait" online={true} />;
+      default:
+        return (
+          <FriendButton
+            onPress={() => {
+              this.props.invite(this.props.dbDigit, this.props.name);
+            }}
+            status="invite"
+          />
+        );
     }
   }
 
@@ -55,5 +68,5 @@ class FriendsItem extends Component {
 
 export default connect(
   null,
-  { accept, invite }
+  { addToGame, accept, invite }
 )(FriendsItem);

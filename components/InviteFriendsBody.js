@@ -7,11 +7,12 @@ import PhoneInput from "react-native-phone-input";
 import { CardSection, Spinner } from "./common";
 import FriendItem from "./FriendItem";
 import FriendButton from "./FriendButton";
-import { invite } from "../actions/network_actions";
+import { invite } from "../actions";
 
 class InviteFriendsBody extends Component {
   state = {
     isReady: false,
+    permission: true,
     data: {},
     phone: null
   };
@@ -142,46 +143,59 @@ class InviteFriendsBody extends Component {
     });
   }
 
-  render() {
+  renderBody() {
+    toRender = [
+      <CardSection style={{ flex: 1, alignSelf: "flex-start" }}>
+        <PhoneInput
+          onPressFlag={() => {}}
+          onChangePhoneNumber={phone => this.setState({ phone })}
+          value={this.state.phone}
+          textStyle={{ fontSize: 24 }}
+          style={{
+            position: "relative",
+            marginRight: 20,
+            marginLeft: 40
+          }}
+        />
+        <FriendButton
+          style={{ marginRight: 45 }}
+          onPress={() => {
+            this.props.invite(
+              String(this.state.phone).replace(/[^\d]/g, ""),
+              "Unknown"
+            );
+          }}
+          status="invite"
+        />
+      </CardSection>
+    ];
     if (!this.state.isReady) {
-      return (
-        <View style={{ flex: 1 }}>
-          <Spinner size={"large"} />
-        </View>
-      );
-    }
-    return (
-      <View style={{ flex: 1 }}>
-        <CardSection style={{ flex: 1 }}>
-          <PhoneInput
-            onPressFlag={() => {}}
-            onChangePhoneNumber={phone => this.setState({ phone })}
-            value={this.state.phone}
-            textStyle={{ fontSize: 24 }}
-            style={{
-              position: "relative",
-              marginRight: 20,
-              marginLeft: 40
-            }}
-          />
-          <FriendButton
-            style={{ marginRight: 45 }}
-            onPress={() => {
-              this.props.invite(
-                String(this.state.phone).replace(/[^\d]/g, ""),
-                "Unknown"
-              );
-            }}
-            status="invite"
-          />
-        </CardSection>
+      toRender.push(<Spinner size={"large"} style={{ flex: 6 }} />);
+      if (!this.state.permission) {
+        toRender.push(
+          <Text style={{ alignSelf: "center" }}>
+            Please go to your privacy settings and allow BotGame to access your
+            contacts
+          </Text>
+        );
+      }
+      setTimeout(() => {
+        this.setState({ permission: false });
+      }, 3000);
+    } else {
+      toRender.push(
         <Container style={{ flex: 6 }}>
           <Content>
             <List>{this.renderContacts()}</List>
           </Content>
         </Container>
-      </View>
-    );
+      );
+    }
+    return toRender;
+  }
+
+  render() {
+    return <View style={{ flex: 1 }}>{this.renderBody()}</View>;
   }
 }
 

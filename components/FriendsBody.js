@@ -12,11 +12,19 @@ import {
 } from "native-base";
 import { CardSection } from "./common";
 import FriendItem from "./FriendItem";
-import { getNetwork } from "../actions/network_actions";
 
 class FriendsBody extends Component {
-  componentDidMount() {
-    this.props.getNetwork();
+  renderInvitations() {
+    let toRender = [];
+    const invites = this.props.invites["received"];
+    if (invites) {
+      for (const [key, value] of Object.entries(invites)) {
+        toRender.push(
+          <FriendItem key={key} name={value} dbDigit={key} status={"accept"} />
+        );
+      }
+    }
+    return toRender;
   }
 
   renderFriends() {
@@ -26,19 +34,6 @@ class FriendsBody extends Component {
       for (const [key, value] of Object.entries(friends)) {
         toRender.push(
           <FriendItem key={key} name={value} dbDigit={key} status={"friend"} />
-        );
-      }
-    }
-    return toRender;
-  }
-
-  renderInvitations() {
-    let toRender = [];
-    const invites = this.props.invites["received"];
-    if (invites) {
-      for (const [key, value] of Object.entries(invites)) {
-        toRender.push(
-          <FriendItem key={key} name={value} dbDigit={key} status={"accept"} />
         );
       }
     }
@@ -64,14 +59,14 @@ class FriendsBody extends Component {
         <Container style={{ flex: 1 }}>
           <Header style={{ flex: 1 }} hasTabs />
           <Tabs style={{ flex: 10 }}>
-            <Tab heading="Friends">
-              <Content>
-                <List>{this.renderFriends()}</List>
-              </Content>
-            </Tab>
             <Tab heading="Received Invites">
               <Content>
                 <List>{this.renderInvitations()}</List>
+              </Content>
+            </Tab>
+            <Tab heading="Friends">
+              <Content>
+                <List>{this.renderFriends()}</List>
               </Content>
             </Tab>
             <Tab heading="Sent Invites">
@@ -91,7 +86,4 @@ const mapStateToProps = ({ network }) => {
   return { invites };
 };
 
-export default connect(
-  mapStateToProps,
-  { getNetwork }
-)(FriendsBody);
+export default connect(mapStateToProps)(FriendsBody);

@@ -1,29 +1,14 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Alert } from "react-native";
-import { Asset, AppLoading, Notifications } from "expo";
+import { Asset, AppLoading } from "expo";
 import FlashMessage from "react-native-flash-message";
 import MainNavigator from "./appUtils/MainNavigator";
 import Root from "./appUtils/Root";
-import registerForNotifications from "./appUtils/push_notifications";
 
 export default class App extends Component {
   state = {
     isReady: false
   };
-
-  componentDidMount() {
-    registerForNotifications();
-    Notifications.addListener(notification => {
-      const {
-        data: { text },
-        origin
-      } = notification;
-
-      if (origin === "received" && text) {
-        Alert.alert("New Push Notification", text, [{ text: "Ok" }]);
-      }
-    });
-  }
 
   render() {
     if (!this.state.isReady) {
@@ -51,7 +36,9 @@ export default class App extends Component {
       require("./assets/icons8-add-user-male-52.png"),
       require("./assets/icons8-historical-filled-100.png"),
       require("./assets/icons8-invite-96.png"),
-      require("./assets/icons8-friends-96.png")
+      require("./assets/icons8-friends-96.png"),
+      require("./assets/icons8-plus-96.png"),
+      require("./assets/icons8-cancel-100.png")
     ];
 
     const cacheImages = images.map(image => {
