@@ -2,7 +2,7 @@ import moxios from 'moxios';
 import firebase from '../../config/firebase';
 import { verifyAuth, getCode, sendCode, setUsername } from '../auth_actions';
 import { LOGIN_SUCCESS, LOGIN_FAIL } from '../types';
-import { initialProps, updateStore } from '../../testUtils/test_props';
+import { initialProps, updateStore } from '../../testUtils/test_utils';
 
 const { navigation, initialState, store } = initialProps();
 

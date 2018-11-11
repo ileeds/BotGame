@@ -3,7 +3,7 @@ import { Provider, connect } from "react-redux";
 import { Notifications } from "expo";
 import { PersistGate } from "redux-persist/lib/integration/react";
 import configureStore from "../store";
-import { verifyAuth, accept, invite } from "../actions";
+import { verifyAuth, acceptFriend, inviteFriend } from "../actions";
 import Confirm from "../components/Confirm";
 import registerForNotifications from "./push_notifications";
 
@@ -21,7 +21,6 @@ class Root extends Component {
   componentDidMount() {
     registerForNotifications();
     Notifications.addListener(notification => {
-      console.log(notification);
       const {
         data: { text, phone, username },
         origin
@@ -35,7 +34,7 @@ class Root extends Component {
 
   onAccept = () => {
     this.setState({ showModal: false });
-    store.dispatch(accept(this.state.phone, this.state.username));
+    store.dispatch(acceptFriend(this.state.phone, this.state.username));
   };
 
   onDecline = () => {

@@ -10,31 +10,18 @@ import {
   UPDATEINVITES_GAME_FAIL
 } from "./types";
 
-export const addToGame = (phoneTo, nameTo) => (dispatch, getState) => {
+// invite friend to join game
+export const inviteToGame = (phoneTo, nameTo) => (dispatch, getState) => {
   const { phone, username } = getState().auth;
   firebase
     .database()
     .ref(`users/${phoneTo}/pushToken`)
-    .once("value", async snapshot => {
-      await axios.post("https://exp.host/--/api/v2/push/send", {
-        to: snapshot.val(),
-        data: {
-          text: `${username} has invited you to join a game`,
-          phone,
-          username
-        }
-      });
+    .once("value", pushToken => {
+      sendInvite(pushToken, username);
     })
-    .then(async () => {
+    .then(() => {
       dispatch({ type: SENDINVITE_GAME_SUCCESS });
-      const gameInvitesRef = firebase.database().ref(`games/${phone}/invites/`);
-      const invitesSnapshot = await gameInvitesRef.once("value");
-      const invitesValue = invitesSnapshot.exists()
-        ? invitesSnapshot.val()
-        : {};
-      const inviteData = { ...invitesValue, [`${phoneTo}`]: false };
-      await gameInvitesRef
-        .set(inviteData)
+      updateInvites(phoneTo)
         .then(() => {
           dispatch({ type: UPDATEINVITES_GAME_SUCCESS });
         })
@@ -49,6 +36,7 @@ export const addToGame = (phoneTo, nameTo) => (dispatch, getState) => {
     });
 };
 
+// get invites, joined users, etc.
 export const getGameNetwork = () => async (dispatch, getState) => {
   const { phone } = getState().auth;
   let invites = [];
@@ -65,4 +53,25 @@ export const getGameNetwork = () => async (dispatch, getState) => {
       console.error(err);
       dispatch({ type: GETNETWORK_GAME_FAIL });
     });
+};
+
+// send push notification to invite to game
+sendInvite = async (pushToken, username) => {
+  await axios.post("https://exp.host/--/api/v2/push/send", {
+    to: snapshot.val(),
+    data: {
+      text: `${username} has invited you to join a game`,
+      phone,
+      username
+    }
+  });
+};
+
+// update invites in db
+updateInvites = async phoneTo => {
+  const gameInvitesRef = firebase.database().ref(`games/${phone}/invites/`);
+  const invitesSnapshot = await gameInvitesRef.once("value");
+  const invitesValue = invitesSnapshot.exists() ? invitesSnapshot.val() : {};
+  const inviteData = { ...invitesValue, [`${phoneTo}`]: false };
+  await gameInvitesRef.set(inviteData);
 };

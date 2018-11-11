@@ -7,7 +7,7 @@ import PhoneInput from "react-native-phone-input";
 import { CardSection, Spinner } from "./common";
 import FriendItem from "./FriendItem";
 import FriendButton from "./FriendButton";
-import { invite } from "../actions";
+import { inviteFriend } from "../actions";
 
 class InviteFriendsBody extends Component {
   state = {
@@ -160,7 +160,7 @@ class InviteFriendsBody extends Component {
         <FriendButton
           style={{ marginRight: 45 }}
           onPress={() => {
-            this.props.invite(
+            this.props.inviteFriend(
               String(this.state.phone).replace(/[^\d]/g, ""),
               "Unknown"
             );
@@ -174,7 +174,7 @@ class InviteFriendsBody extends Component {
       if (!this.state.permission) {
         toRender.push(
           <Text style={{ alignSelf: "center" }}>
-            Please go to your privacy settings and allow BotGame to access your
+            Please go to your privacy settings and allow Chattle to access your
             contacts
           </Text>
         );
@@ -206,5 +206,5 @@ const mapStateToProps = ({ network }) => {
 
 export default connect(
   mapStateToProps,
-  { invite }
+  { inviteFriend }
 )(InviteFriendsBody);

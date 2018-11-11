@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { initialProps, updateStore } from '../testUtils/test_props';
+import { initialProps, updateStore } from '../testUtils/test_utils';
 import Root from '../appUtils/Root';
 import MainNavigator from '../appUtils/MainNavigator';
 import { getInitialScreen } from '../actions';

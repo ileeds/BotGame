@@ -15,27 +15,27 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "expo": "^29.0.0",
-    "firebase": "^5.4.0",
+    "expo": "^29.0.1",
+    "firebase": "^5.5.7",
     "jsdom": "^11.12.0",
     "moxios": "^0.4.0",
-    "native-base": "^2.7.2",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
+    "native-base": "^2.8.1",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-29.0.0.tar.gz",
     "react-native-confirmation-code-input": "github:ileeds/react-native-confirmation-code-input",
     "react-native-elements": "^0.19.1",
-    "react-native-flash-message": "^0.1.9",
+    "react-native-flash-message": "^0.1.10",
     "react-native-phone-input": "^0.2.1",
-    "react-navigation": "^2.11.2",
-    "react-redux": "^5.0.7",
-    "redux": "^4.0.0",
+    "react-navigation": "^2.18.2",
+    "react-redux": "^5.1.0",
+    "redux": "^4.0.1",
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "enzyme": "^3.4.4",
-    "enzyme-adapter-react-16": "^1.2.0",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
     "jest-expo": "^29.0.0"
   }
 }

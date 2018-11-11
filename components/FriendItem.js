@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Image } from "react-native";
 import { ListItem, Text } from "native-base";
-import { addToGame, accept, invite } from "../actions";
+import { inviteToGame, acceptFriend, inviteFriend } from "../actions";
 import FriendButton from "./FriendButton";
 
 class FriendsItem extends Component {
@@ -19,7 +19,7 @@ class FriendsItem extends Component {
         return (
           <FriendButton
             onPress={() => {
-              this.props.accept(this.props.dbDigit, this.props.name);
+              this.props.acceptFriend(this.props.dbDigit, this.props.name);
             }}
             status="accept"
           />
@@ -35,7 +35,7 @@ class FriendsItem extends Component {
         return (
           <FriendButton
             onPress={() => {
-              this.props.addToGame(this.props.dbDigit, this.props.name);
+              this.props.inviteToGame(this.props.dbDigit, this.props.name);
             }}
             status="add"
             online={true}
@@ -47,7 +47,7 @@ class FriendsItem extends Component {
         return (
           <FriendButton
             onPress={() => {
-              this.props.invite(this.props.dbDigit, this.props.name);
+              this.props.inviteFriend(this.props.dbDigit, this.props.name);
             }}
             status="invite"
           />
@@ -68,5 +68,5 @@ class FriendsItem extends Component {
 
 export default connect(
   null,
-  { addToGame, accept, invite }
+  { inviteToGame, acceptFriend, inviteFriend }
 )(FriendsItem);

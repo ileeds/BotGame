@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { initialProps, updateStore } from '../../testUtils/test_props';
+import { initialProps, updateStore } from '../../testUtils/test_utils';
 import Home from '../../screens/Home';
 
 describe('Require Auth Flow', () => {

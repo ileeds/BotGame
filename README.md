@@ -1,4 +1,4 @@
-# BotGame
+# Chattle
 
 Built with React Native and Redux in the Expo XDE.
 
