@@ -18,6 +18,7 @@ class Root extends Component {
     showModal: false
   };
 
+  // push notification listener
   componentDidMount() {
     registerForNotifications();
     Notifications.addListener(notification => {
@@ -32,11 +33,13 @@ class Root extends Component {
     });
   }
 
+  // modal - accept invite
   onAccept = () => {
     this.setState({ showModal: false });
     store.dispatch(acceptFriend(this.state.phone, this.state.username));
   };
 
+  // modal - do not accept invite
   onDecline = () => {
     this.setState({ showModal: false });
   };

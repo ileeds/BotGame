@@ -36,6 +36,7 @@ export const updateStore = (key, value) => {
   return createStore(reducers, initialState, applyMiddleware(thunk));
 };
 
+// create test users starting at 10000000000, 11111111111, ...
 export const createTestUser = (numUsers = 1) => {
   let updateObject = {};
   for (let i = 0; i < numUsers; i++) {

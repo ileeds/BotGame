@@ -1,6 +1,7 @@
 import { Permissions, Notifications } from "expo";
 import { AsyncStorage } from "react-native";
 
+// get expo token and ask for permissions
 export default async () => {
   let previousToken = await AsyncStorage.getItem("push_token");
 

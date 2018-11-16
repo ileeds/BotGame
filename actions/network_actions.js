@@ -90,6 +90,7 @@ export const getNetwork = () => async (dispatch, getState) => {
     });
 };
 
+// TODO: Investigate
 // see who in network is online
 getOnlineStatus = () => async (dispatch, getState) => {
   const { invites } = getState().network;

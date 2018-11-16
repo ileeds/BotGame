@@ -53,7 +53,7 @@ export const sendCode = code => async (dispatch, getState) => {
     dispatch({ type: SENDCODE_SUCCESS });
     NavigationService.navigate("username");
   } catch (err) {
-    console.error(err);
+    console.log(err);
     dispatch({ type: SENDCODE_FAIL });
   }
 };
@@ -103,7 +103,7 @@ retrieveCode = async (path, phone, dispatch) => {
     dispatch({ type: GETCODE_SUCCESS, payload: phone });
     NavigationService.navigate("enterCode");
   } catch (err) {
-    console.error(err);
+    console.log(err);
     dispatch({ type: GETCODE_FAIL });
   }
 };
