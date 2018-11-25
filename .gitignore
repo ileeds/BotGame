@@ -4,4 +4,4 @@ npm-debug.*
 config
 coverage
 app.json
-notes
+notes/
