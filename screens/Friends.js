@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, Button, Platform } from "react-native";
-import FriendsBody from "../components/FriendsBody";
+import FriendsBody from "../components/network/FriendsBody";
 
 class Friends extends Component {
   static navigationOptions = ({ navigation }) => {

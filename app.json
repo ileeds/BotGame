@@ -5,10 +5,7 @@
     "slug": "chattle",
     "privacy": "public",
     "sdkVersion": "29.0.0",
-    "platforms": [
-      "ios",
-      "android"
-    ],
+    "platforms": ["ios", "android"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -20,9 +17,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
@@ -33,7 +28,8 @@
           "config": {
             "organization": "ian-leeds",
             "project": "chattle",
-            "authToken": "3c45b000e6044650a5eace24ccd0dd02668182b0f070475f9da85a9596a4e6d7"
+            "authToken":
+              "1abd62ba209b4c40be9fe41c122c3cb1e16c3ebceb6a454fac088033592b6c26"
           }
         }
       ]

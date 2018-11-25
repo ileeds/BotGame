@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { View } from "react-native";
 import { connect } from "react-redux";
-import { setUsername } from "../actions";
-import { renderErrorAndLoading } from "../appUtils/renderFunctions";
-import ButtonLarge from "./ButtonLarge";
-import { CardSection, Input } from "./common";
-import { backgroundColor } from "../appUtils/puppet";
+import { setUsername } from "../../actions";
+import { renderErrorAndLoading } from "../../appUtils/renderFunctions";
+import ButtonLarge from "../ButtonLarge";
+import { CardSection, Input } from "../common";
+import { backgroundColor } from "../../appUtils/puppet";
 
 class UsernameForm extends Component {
   state = { username: "" };

@@ -6,9 +6,6 @@ import MainNavigator from "./appUtils/MainNavigator";
 import Root from "./appUtils/Root";
 import Sentry from "sentry-expo";
 
-// Remove this once Sentry is correctly setup.
-Sentry.enableInExpoDevelopment = true;
-
 Sentry.config(
   "https://148980b9f6c248009a2a09ed8f6856a0@sentry.io/1324140"
 ).install();

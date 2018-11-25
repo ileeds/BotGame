@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import { View } from "react-native";
 import { connect } from "react-redux";
 import CodeInput from "react-native-confirmation-code-input";
-import { sendCode } from "../actions";
-import { renderErrorAndLoading } from "../appUtils/renderFunctions";
-import NavigationService from "../appUtils/NavigationService";
-import ButtonLarge from "./ButtonLarge";
-import { CardSection } from "./common";
-import { backgroundColor } from "../appUtils/puppet";
+import { sendCode } from "../../actions";
+import { renderErrorAndLoading } from "../../appUtils/renderFunctions";
+import NavigationService from "../../appUtils/NavigationService";
+import ButtonLarge from "../ButtonLarge";
+import { CardSection } from "../common";
+import { backgroundColor } from "../../appUtils/puppet";
 
 class SignInForm extends Component {
   render() {

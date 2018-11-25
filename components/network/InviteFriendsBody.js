@@ -4,10 +4,10 @@ import { View } from "react-native";
 import { Container, Content, List, ListItem, Text } from "native-base";
 import { Contacts } from "expo";
 import PhoneInput from "react-native-phone-input";
-import { CardSection, Spinner } from "./common";
+import { CardSection, Spinner } from "../common";
 import FriendItem from "./FriendItem";
 import FriendButton from "./FriendButton";
-import { inviteFriend } from "../actions";
+import { inviteFriend } from "../../actions";
 
 class InviteFriendsBody extends Component {
   state = {
@@ -92,6 +92,12 @@ class InviteFriendsBody extends Component {
     );
   }
 
+  renderFriendItem(id, name, dbDigit, status) {
+    return (
+      <FriendItem key={id} name={name} dbDigit={dbDigit} status={status} />
+    );
+  }
+
   renderFriends(value) {
     return value.map(contact => {
       const { name, id, digits } = contact;
@@ -103,47 +109,21 @@ class InviteFriendsBody extends Component {
 
       if (dbDigit.length == 11) {
         if (sentInvites && Object.keys(sentInvites).includes(dbDigit)) {
-          return (
-            <FriendItem
-              key={id}
-              name={name}
-              dbDigit={dbDigit}
-              status={"invited"}
-            />
-          );
+          return this.renderFriendItem(id, name, dbDigit, "invited");
         } else if (invites && Object.keys(invites).includes(dbDigit)) {
-          return (
-            <FriendItem
-              key={id}
-              name={name}
-              dbDigit={dbDigit}
-              status={"accept"}
-            />
-          );
+          return this.renderFriendItem(id, name, dbDigit, "accept");
         } else if (friends && Object.keys(friends).includes(dbDigit)) {
-          return (
-            <FriendItem
-              key={id}
-              name={name}
-              dbDigit={dbDigit}
-              status={"friend"}
-            />
-          );
+          return this.renderFriendItem(id, name, dbDigit, "friend");
+          // investigate
         } else {
-          return (
-            <FriendItem
-              key={id}
-              name={name}
-              dbDigit={dbDigit}
-              status={"none"}
-            />
-          );
+          return this.renderFriendItem(id, name, dbDigit, "none");
         }
       }
     });
   }
 
   renderBody() {
+    const { phoneInputStyle } = styles;
     toRender = [
       <CardSection style={{ flex: 1, alignSelf: "flex-start" }}>
         <PhoneInput
@@ -151,11 +131,7 @@ class InviteFriendsBody extends Component {
           onChangePhoneNumber={phone => this.setState({ phone })}
           value={this.state.phone}
           textStyle={{ fontSize: 24 }}
-          style={{
-            position: "relative",
-            marginRight: 20,
-            marginLeft: 40
-          }}
+          style={phoneInputStyle}
         />
         <FriendButton
           style={{ marginRight: 45 }}
@@ -198,6 +174,14 @@ class InviteFriendsBody extends Component {
     return <View style={{ flex: 1 }}>{this.renderBody()}</View>;
   }
 }
+
+const styles = {
+  phoneInputStyle: {
+    position: "relative",
+    marginRight: 20,
+    marginLeft: 40
+  }
+};
 
 const mapStateToProps = ({ network }) => {
   const { invites } = network;

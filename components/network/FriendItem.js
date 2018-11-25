@@ -2,19 +2,21 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Image } from "react-native";
 import { ListItem, Text } from "native-base";
-import { inviteToGame, acceptFriend, inviteFriend } from "../actions";
+import { inviteToGame, acceptFriend, inviteFriend } from "../../actions";
 import FriendButton from "./FriendButton";
 
 class FriendsItem extends Component {
   renderIcon() {
     switch (this.props.status) {
+      // invited to network
       case "invited":
         return (
           <Image
-            source={require("../assets/icons8-historical-filled-100.png")}
+            source={require("../../assets/icons8-historical-filled-100.png")}
             style={{ width: 24, height: 24 }}
           />
         );
+      // accept network request
       case "accept":
         return (
           <FriendButton
@@ -24,13 +26,15 @@ class FriendsItem extends Component {
             status="accept"
           />
         );
+      // network friend
       case "friend":
         return (
           <Image
-            source={require("../assets/icons8-friends-96.png")}
+            source={require("../../assets/icons8-friends-96.png")}
             style={{ width: 24, height: 24 }}
           />
         );
+      // add to game
       case "add":
         return (
           <FriendButton
@@ -41,8 +45,10 @@ class FriendsItem extends Component {
             online={true}
           />
         );
+      // invited to game
       case "wait":
         return <FriendButton status="wait" online={true} />;
+      // invite to network
       default:
         return (
           <FriendButton

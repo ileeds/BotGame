@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, Image, TouchableOpacity } from "react-native";
 import { connect } from "react-redux";
 import NavigationService from "../appUtils/NavigationService";
-import FriendItem from "./FriendItem";
+import FriendItem from "./network/FriendItem";
 import ButtonLarge from "./ButtonLarge";
 import LobbyModal from "./LobbyModal";
 import { CardSection } from "./common";
