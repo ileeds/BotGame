@@ -9,13 +9,14 @@ import ButtonLarge from "../ButtonLarge";
 import { CardSection } from "../common";
 import { backgroundColor } from "../../appUtils/puppet";
 
-class SignInForm extends Component {
+export class SignInForm extends Component {
   render() {
     return (
-      <View style={{ backgroundColor, flex: 1 }}>
+      <View id="SignInForm" style={{ backgroundColor, flex: 1 }}>
         <View style={{ flex: 0.5 }} />
         <CardSection>
           <CodeInput
+            id="CodeInput"
             ref="codeInputRef"
             codeLength={4}
             space={20}
@@ -28,6 +29,7 @@ class SignInForm extends Component {
 
         <CardSection>
           <ButtonLarge
+            id="ButtonLarge"
             text="Get Another Code"
             onPress={() => {
               this.refs.codeInputRef.clear();

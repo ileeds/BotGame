@@ -11,7 +11,10 @@
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/testUtils/setupTests.js",
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "transformIgnorePatterns": [
+      "/node_modules/(?!native-base)/"
+    ]
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -30,6 +33,7 @@
     "react-navigation": "^2.18.2",
     "react-redux": "^5.1.0",
     "redux": "^4.0.1",
+    "redux-mock-store": "^1.5.3",
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
     "sentry-expo": "^1.10.0",
@@ -38,6 +42,7 @@
   "devDependencies": {
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
-    "jest-expo": "^29.0.0"
+    "jest-expo": "^29.0.0",
+    "react-native-mock-render": "^0.1.2"
   }
 }

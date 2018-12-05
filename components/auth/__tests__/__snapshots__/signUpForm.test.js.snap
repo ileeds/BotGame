@@ -1,0 +1,1528 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#3E5382",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 0.5,
+      }
+    }
+  />
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "rgba(0, 0, 0, 0.0)",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "padding": 5,
+          "position": "relative",
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "center",
+          },
+          Object {
+            "marginLeft": 20,
+            "marginRight": 20,
+            "position": "relative",
+          },
+        ]
+      }
+    >
+      <Image
+        accessible={true}
+        onPress={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        source={1}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#cecece",
+              "borderColor": "#cecece",
+              "borderRadius": 2,
+              "borderWidth": 0.5,
+              "height": 20,
+              "width": 30,
+            },
+            Object {
+              "borderWidth": 0,
+              "height": 60,
+              "width": 100,
+            },
+          ]
+        }
+      />
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "marginLeft": 10,
+          }
+        }
+      >
+        <TextInput
+          allowFontScaling={true}
+          autoCorrect={false}
+          editable={true}
+          keyboardType="phone-pad"
+          onChangeText={[Function]}
+          style={
+            Array [
+              Object {
+                "height": 20,
+                "justifyContent": "center",
+                "padding": 0,
+              },
+              Object {
+                "color": "white",
+                "fontSize": 30,
+                "height": 100,
+                "letterSpacing": 3,
+              },
+            ]
+          }
+          underlineColorAndroid="rgba(0,0,0,0)"
+          value="+1"
+        />
+      </View>
+      <Modal
+        animationType="slide"
+        hardwareAccelerated={false}
+        onRequestClose={[Function]}
+        transparent={true}
+        visible={false}
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "justifyContent": "flex-end",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "padding": 0,
+                  "width": 750,
+                },
+                Object {
+                  "backgroundColor": "white",
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Object {
+                  "borderTopColor": "lightgrey",
+                  "borderTopWidth": 0.5,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "padding": 8,
+                  "width": 750,
+                }
+              }
+            >
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                  }
+                }
+              >
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  style={
+                    Array [
+                      Object {
+                        "color": "#007AFF",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  Cancel
+                </Text>
+              </View>
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                  }
+                }
+              >
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  style={
+                    Array [
+                      Object {
+                        "color": "#007AFF",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  Confirm
+                </Text>
+              </View>
+            </View>
+            <View>
+              <View
+                style={
+                  Object {
+                    "width": 750,
+                  }
+                }
+              >
+                <RCTPicker
+                  items={
+                    Array [
+                      Object {
+                        "label": "Afghanistan (‫افغانستان‬‎)",
+                        "textColor": undefined,
+                        "value": "af",
+                      },
+                      Object {
+                        "label": "Albania (Shqipëri)",
+                        "textColor": undefined,
+                        "value": "al",
+                      },
+                      Object {
+                        "label": "Algeria (‫الجزائر‬‎)",
+                        "textColor": undefined,
+                        "value": "dz",
+                      },
+                      Object {
+                        "label": "American Samoa",
+                        "textColor": undefined,
+                        "value": "as",
+                      },
+                      Object {
+                        "label": "Andorra",
+                        "textColor": undefined,
+                        "value": "ad",
+                      },
+                      Object {
+                        "label": "Angola",
+                        "textColor": undefined,
+                        "value": "ao",
+                      },
+                      Object {
+                        "label": "Anguilla",
+                        "textColor": undefined,
+                        "value": "ai",
+                      },
+                      Object {
+                        "label": "Antigua and Barbuda",
+                        "textColor": undefined,
+                        "value": "ag",
+                      },
+                      Object {
+                        "label": "Argentina",
+                        "textColor": undefined,
+                        "value": "ar",
+                      },
+                      Object {
+                        "label": "Armenia (Հայաստան)",
+                        "textColor": undefined,
+                        "value": "am",
+                      },
+                      Object {
+                        "label": "Aruba",
+                        "textColor": undefined,
+                        "value": "aw",
+                      },
+                      Object {
+                        "label": "Australia",
+                        "textColor": undefined,
+                        "value": "au",
+                      },
+                      Object {
+                        "label": "Austria (Österreich)",
+                        "textColor": undefined,
+                        "value": "at",
+                      },
+                      Object {
+                        "label": "Azerbaijan (Azərbaycan)",
+                        "textColor": undefined,
+                        "value": "az",
+                      },
+                      Object {
+                        "label": "Bahamas",
+                        "textColor": undefined,
+                        "value": "bs",
+                      },
+                      Object {
+                        "label": "Bahrain (‫البحرين‬‎)",
+                        "textColor": undefined,
+                        "value": "bh",
+                      },
+                      Object {
+                        "label": "Bangladesh (বাংলাদেশ)",
+                        "textColor": undefined,
+                        "value": "bd",
+                      },
+                      Object {
+                        "label": "Barbados",
+                        "textColor": undefined,
+                        "value": "bb",
+                      },
+                      Object {
+                        "label": "Belarus (Беларусь)",
+                        "textColor": undefined,
+                        "value": "by",
+                      },
+                      Object {
+                        "label": "Belgium (België)",
+                        "textColor": undefined,
+                        "value": "be",
+                      },
+                      Object {
+                        "label": "Belize",
+                        "textColor": undefined,
+                        "value": "bz",
+                      },
+                      Object {
+                        "label": "Benin (Bénin)",
+                        "textColor": undefined,
+                        "value": "bj",
+                      },
+                      Object {
+                        "label": "Bermuda",
+                        "textColor": undefined,
+                        "value": "bm",
+                      },
+                      Object {
+                        "label": "Bhutan (འབྲུག)",
+                        "textColor": undefined,
+                        "value": "bt",
+                      },
+                      Object {
+                        "label": "Bolivia",
+                        "textColor": undefined,
+                        "value": "bo",
+                      },
+                      Object {
+                        "label": "Bosnia and Herzegovina (Босна и Херцеговина)",
+                        "textColor": undefined,
+                        "value": "ba",
+                      },
+                      Object {
+                        "label": "Botswana",
+                        "textColor": undefined,
+                        "value": "bw",
+                      },
+                      Object {
+                        "label": "Brazil (Brasil)",
+                        "textColor": undefined,
+                        "value": "br",
+                      },
+                      Object {
+                        "label": "British Indian Ocean Territory",
+                        "textColor": undefined,
+                        "value": "io",
+                      },
+                      Object {
+                        "label": "British Virgin Islands",
+                        "textColor": undefined,
+                        "value": "vg",
+                      },
+                      Object {
+                        "label": "Brunei",
+                        "textColor": undefined,
+                        "value": "bn",
+                      },
+                      Object {
+                        "label": "Bulgaria (България)",
+                        "textColor": undefined,
+                        "value": "bg",
+                      },
+                      Object {
+                        "label": "Burkina Faso",
+                        "textColor": undefined,
+                        "value": "bf",
+                      },
+                      Object {
+                        "label": "Burundi (Uburundi)",
+                        "textColor": undefined,
+                        "value": "bi",
+                      },
+                      Object {
+                        "label": "Cambodia (កម្ពុជា)",
+                        "textColor": undefined,
+                        "value": "kh",
+                      },
+                      Object {
+                        "label": "Cameroon (Cameroun)",
+                        "textColor": undefined,
+                        "value": "cm",
+                      },
+                      Object {
+                        "label": "Canada",
+                        "textColor": undefined,
+                        "value": "ca",
+                      },
+                      Object {
+                        "label": "Cape Verde (Kabu Verdi)",
+                        "textColor": undefined,
+                        "value": "cv",
+                      },
+                      Object {
+                        "label": "Caribbean Netherlands",
+                        "textColor": undefined,
+                        "value": "bq",
+                      },
+                      Object {
+                        "label": "Cayman Islands",
+                        "textColor": undefined,
+                        "value": "ky",
+                      },
+                      Object {
+                        "label": "Central African Republic (République centrafricaine)",
+                        "textColor": undefined,
+                        "value": "cf",
+                      },
+                      Object {
+                        "label": "Chad (Tchad)",
+                        "textColor": undefined,
+                        "value": "td",
+                      },
+                      Object {
+                        "label": "Chile",
+                        "textColor": undefined,
+                        "value": "cl",
+                      },
+                      Object {
+                        "label": "China (中国)",
+                        "textColor": undefined,
+                        "value": "cn",
+                      },
+                      Object {
+                        "label": "Christmas Island",
+                        "textColor": undefined,
+                        "value": "cx",
+                      },
+                      Object {
+                        "label": "Cocos (Keeling) Islands",
+                        "textColor": undefined,
+                        "value": "cc",
+                      },
+                      Object {
+                        "label": "Colombia",
+                        "textColor": undefined,
+                        "value": "co",
+                      },
+                      Object {
+                        "label": "Comoros (‫جزر القمر‬‎)",
+                        "textColor": undefined,
+                        "value": "km",
+                      },
+                      Object {
+                        "label": "Congo (DRC) (Jamhuri ya Kidemokrasia ya Kongo)",
+                        "textColor": undefined,
+                        "value": "cd",
+                      },
+                      Object {
+                        "label": "Congo (Republic) (Congo-Brazzaville)",
+                        "textColor": undefined,
+                        "value": "cg",
+                      },
+                      Object {
+                        "label": "Cook Islands",
+                        "textColor": undefined,
+                        "value": "ck",
+                      },
+                      Object {
+                        "label": "Costa Rica",
+                        "textColor": undefined,
+                        "value": "cr",
+                      },
+                      Object {
+                        "label": "Croatia (Hrvatska)",
+                        "textColor": undefined,
+                        "value": "hr",
+                      },
+                      Object {
+                        "label": "Cuba",
+                        "textColor": undefined,
+                        "value": "cu",
+                      },
+                      Object {
+                        "label": "Curaçao",
+                        "textColor": undefined,
+                        "value": "cw",
+                      },
+                      Object {
+                        "label": "Cyprus (Κύπρος)",
+                        "textColor": undefined,
+                        "value": "cy",
+                      },
+                      Object {
+                        "label": "Czech Republic (Česká republika)",
+                        "textColor": undefined,
+                        "value": "cz",
+                      },
+                      Object {
+                        "label": "Côte d’Ivoire",
+                        "textColor": undefined,
+                        "value": "ci",
+                      },
+                      Object {
+                        "label": "Denmark (Danmark)",
+                        "textColor": undefined,
+                        "value": "dk",
+                      },
+                      Object {
+                        "label": "Djibouti",
+                        "textColor": undefined,
+                        "value": "dj",
+                      },
+                      Object {
+                        "label": "Dominica",
+                        "textColor": undefined,
+                        "value": "dm",
+                      },
+                      Object {
+                        "label": "Dominican Republic (República Dominicana)",
+                        "textColor": undefined,
+                        "value": "do",
+                      },
+                      Object {
+                        "label": "Ecuador",
+                        "textColor": undefined,
+                        "value": "ec",
+                      },
+                      Object {
+                        "label": "Egypt (‫مصر‬‎)",
+                        "textColor": undefined,
+                        "value": "eg",
+                      },
+                      Object {
+                        "label": "El Salvador",
+                        "textColor": undefined,
+                        "value": "sv",
+                      },
+                      Object {
+                        "label": "Equatorial Guinea (Guinea Ecuatorial)",
+                        "textColor": undefined,
+                        "value": "gq",
+                      },
+                      Object {
+                        "label": "Eritrea",
+                        "textColor": undefined,
+                        "value": "er",
+                      },
+                      Object {
+                        "label": "Estonia (Eesti)",
+                        "textColor": undefined,
+                        "value": "ee",
+                      },
+                      Object {
+                        "label": "Ethiopia",
+                        "textColor": undefined,
+                        "value": "et",
+                      },
+                      Object {
+                        "label": "Falkland Islands (Islas Malvinas)",
+                        "textColor": undefined,
+                        "value": "fk",
+                      },
+                      Object {
+                        "label": "Faroe Islands (Føroyar)",
+                        "textColor": undefined,
+                        "value": "fo",
+                      },
+                      Object {
+                        "label": "Fiji",
+                        "textColor": undefined,
+                        "value": "fj",
+                      },
+                      Object {
+                        "label": "Finland (Suomi)",
+                        "textColor": undefined,
+                        "value": "fi",
+                      },
+                      Object {
+                        "label": "France",
+                        "textColor": undefined,
+                        "value": "fr",
+                      },
+                      Object {
+                        "label": "French Guiana (Guyane française)",
+                        "textColor": undefined,
+                        "value": "gf",
+                      },
+                      Object {
+                        "label": "French Polynesia (Polynésie française)",
+                        "textColor": undefined,
+                        "value": "pf",
+                      },
+                      Object {
+                        "label": "Gabon",
+                        "textColor": undefined,
+                        "value": "ga",
+                      },
+                      Object {
+                        "label": "Gambia",
+                        "textColor": undefined,
+                        "value": "gm",
+                      },
+                      Object {
+                        "label": "Georgia (საქართველო)",
+                        "textColor": undefined,
+                        "value": "ge",
+                      },
+                      Object {
+                        "label": "Germany (Deutschland)",
+                        "textColor": undefined,
+                        "value": "de",
+                      },
+                      Object {
+                        "label": "Ghana (Gaana)",
+                        "textColor": undefined,
+                        "value": "gh",
+                      },
+                      Object {
+                        "label": "Gibraltar",
+                        "textColor": undefined,
+                        "value": "gi",
+                      },
+                      Object {
+                        "label": "Greece (Ελλάδα)",
+                        "textColor": undefined,
+                        "value": "gr",
+                      },
+                      Object {
+                        "label": "Greenland (Kalaallit Nunaat)",
+                        "textColor": undefined,
+                        "value": "gl",
+                      },
+                      Object {
+                        "label": "Grenada",
+                        "textColor": undefined,
+                        "value": "gd",
+                      },
+                      Object {
+                        "label": "Guadeloupe",
+                        "textColor": undefined,
+                        "value": "gp",
+                      },
+                      Object {
+                        "label": "Guam",
+                        "textColor": undefined,
+                        "value": "gu",
+                      },
+                      Object {
+                        "label": "Guatemala",
+                        "textColor": undefined,
+                        "value": "gt",
+                      },
+                      Object {
+                        "label": "Guernsey",
+                        "textColor": undefined,
+                        "value": "gg",
+                      },
+                      Object {
+                        "label": "Guinea (Guinée)",
+                        "textColor": undefined,
+                        "value": "gn",
+                      },
+                      Object {
+                        "label": "Guinea-Bissau (Guiné Bissau)",
+                        "textColor": undefined,
+                        "value": "gw",
+                      },
+                      Object {
+                        "label": "Guyana",
+                        "textColor": undefined,
+                        "value": "gy",
+                      },
+                      Object {
+                        "label": "Haiti",
+                        "textColor": undefined,
+                        "value": "ht",
+                      },
+                      Object {
+                        "label": "Honduras",
+                        "textColor": undefined,
+                        "value": "hn",
+                      },
+                      Object {
+                        "label": "Hong Kong (香港)",
+                        "textColor": undefined,
+                        "value": "hk",
+                      },
+                      Object {
+                        "label": "Hungary (Magyarország)",
+                        "textColor": undefined,
+                        "value": "hu",
+                      },
+                      Object {
+                        "label": "Iceland (Ísland)",
+                        "textColor": undefined,
+                        "value": "is",
+                      },
+                      Object {
+                        "label": "India (भारत)",
+                        "textColor": undefined,
+                        "value": "in",
+                      },
+                      Object {
+                        "label": "Indonesia",
+                        "textColor": undefined,
+                        "value": "id",
+                      },
+                      Object {
+                        "label": "Iran (‫ایران‬‎)",
+                        "textColor": undefined,
+                        "value": "ir",
+                      },
+                      Object {
+                        "label": "Iraq (‫العراق‬‎)",
+                        "textColor": undefined,
+                        "value": "iq",
+                      },
+                      Object {
+                        "label": "Ireland",
+                        "textColor": undefined,
+                        "value": "ie",
+                      },
+                      Object {
+                        "label": "Isle of Man",
+                        "textColor": undefined,
+                        "value": "im",
+                      },
+                      Object {
+                        "label": "Israel (‫ישראל‬‎)",
+                        "textColor": undefined,
+                        "value": "il",
+                      },
+                      Object {
+                        "label": "Italy (Italia)",
+                        "textColor": undefined,
+                        "value": "it",
+                      },
+                      Object {
+                        "label": "Jamaica",
+                        "textColor": undefined,
+                        "value": "jm",
+                      },
+                      Object {
+                        "label": "Japan (日本)",
+                        "textColor": undefined,
+                        "value": "jp",
+                      },
+                      Object {
+                        "label": "Jersey",
+                        "textColor": undefined,
+                        "value": "je",
+                      },
+                      Object {
+                        "label": "Jordan (‫الأردن‬‎)",
+                        "textColor": undefined,
+                        "value": "jo",
+                      },
+                      Object {
+                        "label": "Kazakhstan (Казахстан)",
+                        "textColor": undefined,
+                        "value": "kz",
+                      },
+                      Object {
+                        "label": "Kenya",
+                        "textColor": undefined,
+                        "value": "ke",
+                      },
+                      Object {
+                        "label": "Kiribati",
+                        "textColor": undefined,
+                        "value": "ki",
+                      },
+                      Object {
+                        "label": "Kuwait (‫الكويت‬‎)",
+                        "textColor": undefined,
+                        "value": "kw",
+                      },
+                      Object {
+                        "label": "Kyrgyzstan (Кыргызстан)",
+                        "textColor": undefined,
+                        "value": "kg",
+                      },
+                      Object {
+                        "label": "Laos (ລາວ)",
+                        "textColor": undefined,
+                        "value": "la",
+                      },
+                      Object {
+                        "label": "Latvia (Latvija)",
+                        "textColor": undefined,
+                        "value": "lv",
+                      },
+                      Object {
+                        "label": "Lebanon (‫لبنان‬‎)",
+                        "textColor": undefined,
+                        "value": "lb",
+                      },
+                      Object {
+                        "label": "Lesotho",
+                        "textColor": undefined,
+                        "value": "ls",
+                      },
+                      Object {
+                        "label": "Liberia",
+                        "textColor": undefined,
+                        "value": "lr",
+                      },
+                      Object {
+                        "label": "Libya (‫ليبيا‬‎)",
+                        "textColor": undefined,
+                        "value": "ly",
+                      },
+                      Object {
+                        "label": "Liechtenstein",
+                        "textColor": undefined,
+                        "value": "li",
+                      },
+                      Object {
+                        "label": "Lithuania (Lietuva)",
+                        "textColor": undefined,
+                        "value": "lt",
+                      },
+                      Object {
+                        "label": "Luxembourg",
+                        "textColor": undefined,
+                        "value": "lu",
+                      },
+                      Object {
+                        "label": "Macau (澳門)",
+                        "textColor": undefined,
+                        "value": "mo",
+                      },
+                      Object {
+                        "label": "Macedonia (FYROM) (Македонија)",
+                        "textColor": undefined,
+                        "value": "mk",
+                      },
+                      Object {
+                        "label": "Madagascar (Madagasikara)",
+                        "textColor": undefined,
+                        "value": "mg",
+                      },
+                      Object {
+                        "label": "Malawi",
+                        "textColor": undefined,
+                        "value": "mw",
+                      },
+                      Object {
+                        "label": "Malaysia",
+                        "textColor": undefined,
+                        "value": "my",
+                      },
+                      Object {
+                        "label": "Maldives",
+                        "textColor": undefined,
+                        "value": "mv",
+                      },
+                      Object {
+                        "label": "Mali",
+                        "textColor": undefined,
+                        "value": "ml",
+                      },
+                      Object {
+                        "label": "Malta",
+                        "textColor": undefined,
+                        "value": "mt",
+                      },
+                      Object {
+                        "label": "Marshall Islands",
+                        "textColor": undefined,
+                        "value": "mh",
+                      },
+                      Object {
+                        "label": "Martinique",
+                        "textColor": undefined,
+                        "value": "mq",
+                      },
+                      Object {
+                        "label": "Mauritania (‫موريتانيا‬‎)",
+                        "textColor": undefined,
+                        "value": "mr",
+                      },
+                      Object {
+                        "label": "Mauritius (Moris)",
+                        "textColor": undefined,
+                        "value": "mu",
+                      },
+                      Object {
+                        "label": "Mayotte",
+                        "textColor": undefined,
+                        "value": "yt",
+                      },
+                      Object {
+                        "label": "Mexico (México)",
+                        "textColor": undefined,
+                        "value": "mx",
+                      },
+                      Object {
+                        "label": "Micronesia",
+                        "textColor": undefined,
+                        "value": "fm",
+                      },
+                      Object {
+                        "label": "Moldova (Republica Moldova)",
+                        "textColor": undefined,
+                        "value": "md",
+                      },
+                      Object {
+                        "label": "Monaco",
+                        "textColor": undefined,
+                        "value": "mc",
+                      },
+                      Object {
+                        "label": "Mongolia (Монгол)",
+                        "textColor": undefined,
+                        "value": "mn",
+                      },
+                      Object {
+                        "label": "Montenegro (Crna Gora)",
+                        "textColor": undefined,
+                        "value": "me",
+                      },
+                      Object {
+                        "label": "Montserrat",
+                        "textColor": undefined,
+                        "value": "ms",
+                      },
+                      Object {
+                        "label": "Morocco (‫المغرب‬‎)",
+                        "textColor": undefined,
+                        "value": "ma",
+                      },
+                      Object {
+                        "label": "Mozambique (Moçambique)",
+                        "textColor": undefined,
+                        "value": "mz",
+                      },
+                      Object {
+                        "label": "Myanmar (Burma)",
+                        "textColor": undefined,
+                        "value": "mm",
+                      },
+                      Object {
+                        "label": "Namibia (Namibië)",
+                        "textColor": undefined,
+                        "value": "na",
+                      },
+                      Object {
+                        "label": "Nauru",
+                        "textColor": undefined,
+                        "value": "nr",
+                      },
+                      Object {
+                        "label": "Nepal (नेपाल)",
+                        "textColor": undefined,
+                        "value": "np",
+                      },
+                      Object {
+                        "label": "Netherlands (Nederland)",
+                        "textColor": undefined,
+                        "value": "nl",
+                      },
+                      Object {
+                        "label": "New Caledonia (Nouvelle-Calédonie)",
+                        "textColor": undefined,
+                        "value": "nc",
+                      },
+                      Object {
+                        "label": "New Zealand",
+                        "textColor": undefined,
+                        "value": "nz",
+                      },
+                      Object {
+                        "label": "Nicaragua",
+                        "textColor": undefined,
+                        "value": "ni",
+                      },
+                      Object {
+                        "label": "Niger (Nijar)",
+                        "textColor": undefined,
+                        "value": "ne",
+                      },
+                      Object {
+                        "label": "Nigeria",
+                        "textColor": undefined,
+                        "value": "ng",
+                      },
+                      Object {
+                        "label": "Niue",
+                        "textColor": undefined,
+                        "value": "nu",
+                      },
+                      Object {
+                        "label": "Norfolk Island",
+                        "textColor": undefined,
+                        "value": "nf",
+                      },
+                      Object {
+                        "label": "North Korea (조선 민주주의 인민 공화국)",
+                        "textColor": undefined,
+                        "value": "kp",
+                      },
+                      Object {
+                        "label": "Northern Mariana Islands",
+                        "textColor": undefined,
+                        "value": "mp",
+                      },
+                      Object {
+                        "label": "Norway (Norge)",
+                        "textColor": undefined,
+                        "value": "no",
+                      },
+                      Object {
+                        "label": "Oman (‫عُمان‬‎)",
+                        "textColor": undefined,
+                        "value": "om",
+                      },
+                      Object {
+                        "label": "Pakistan (‫پاکستان‬‎)",
+                        "textColor": undefined,
+                        "value": "pk",
+                      },
+                      Object {
+                        "label": "Palau",
+                        "textColor": undefined,
+                        "value": "pw",
+                      },
+                      Object {
+                        "label": "Palestine (‫فلسطين‬‎)",
+                        "textColor": undefined,
+                        "value": "ps",
+                      },
+                      Object {
+                        "label": "Panama (Panamá)",
+                        "textColor": undefined,
+                        "value": "pa",
+                      },
+                      Object {
+                        "label": "Papua New Guinea",
+                        "textColor": undefined,
+                        "value": "pg",
+                      },
+                      Object {
+                        "label": "Paraguay",
+                        "textColor": undefined,
+                        "value": "py",
+                      },
+                      Object {
+                        "label": "Peru (Perú)",
+                        "textColor": undefined,
+                        "value": "pe",
+                      },
+                      Object {
+                        "label": "Philippines",
+                        "textColor": undefined,
+                        "value": "ph",
+                      },
+                      Object {
+                        "label": "Poland (Polska)",
+                        "textColor": undefined,
+                        "value": "pl",
+                      },
+                      Object {
+                        "label": "Portugal",
+                        "textColor": undefined,
+                        "value": "pt",
+                      },
+                      Object {
+                        "label": "Puerto Rico",
+                        "textColor": undefined,
+                        "value": "pr",
+                      },
+                      Object {
+                        "label": "Qatar (‫قطر‬‎)",
+                        "textColor": undefined,
+                        "value": "qa",
+                      },
+                      Object {
+                        "label": "Romania (România)",
+                        "textColor": undefined,
+                        "value": "ro",
+                      },
+                      Object {
+                        "label": "Russia (Россия)",
+                        "textColor": undefined,
+                        "value": "ru",
+                      },
+                      Object {
+                        "label": "Rwanda",
+                        "textColor": undefined,
+                        "value": "rw",
+                      },
+                      Object {
+                        "label": "Réunion (La Réunion)",
+                        "textColor": undefined,
+                        "value": "re",
+                      },
+                      Object {
+                        "label": "Saint Barthélemy (Saint-Barthélemy)",
+                        "textColor": undefined,
+                        "value": "bl",
+                      },
+                      Object {
+                        "label": "Saint Helena",
+                        "textColor": undefined,
+                        "value": "sh",
+                      },
+                      Object {
+                        "label": "Saint Kitts and Nevis",
+                        "textColor": undefined,
+                        "value": "kn",
+                      },
+                      Object {
+                        "label": "Saint Lucia",
+                        "textColor": undefined,
+                        "value": "lc",
+                      },
+                      Object {
+                        "label": "Saint Martin (Saint-Martin (partie française))",
+                        "textColor": undefined,
+                        "value": "mf",
+                      },
+                      Object {
+                        "label": "Saint Pierre and Miquelon (Saint-Pierre-et-Miquelon)",
+                        "textColor": undefined,
+                        "value": "pm",
+                      },
+                      Object {
+                        "label": "Saint Vincent and the Grenadines",
+                        "textColor": undefined,
+                        "value": "vc",
+                      },
+                      Object {
+                        "label": "Samoa",
+                        "textColor": undefined,
+                        "value": "ws",
+                      },
+                      Object {
+                        "label": "San Marino",
+                        "textColor": undefined,
+                        "value": "sm",
+                      },
+                      Object {
+                        "label": "Saudi Arabia (‫المملكة العربية السعودية‬‎)",
+                        "textColor": undefined,
+                        "value": "sa",
+                      },
+                      Object {
+                        "label": "Senegal (Sénégal)",
+                        "textColor": undefined,
+                        "value": "sn",
+                      },
+                      Object {
+                        "label": "Serbia (Србија)",
+                        "textColor": undefined,
+                        "value": "rs",
+                      },
+                      Object {
+                        "label": "Seychelles",
+                        "textColor": undefined,
+                        "value": "sc",
+                      },
+                      Object {
+                        "label": "Sierra Leone",
+                        "textColor": undefined,
+                        "value": "sl",
+                      },
+                      Object {
+                        "label": "Singapore",
+                        "textColor": undefined,
+                        "value": "sg",
+                      },
+                      Object {
+                        "label": "Sint Maarten",
+                        "textColor": undefined,
+                        "value": "sx",
+                      },
+                      Object {
+                        "label": "Slovakia (Slovensko)",
+                        "textColor": undefined,
+                        "value": "sk",
+                      },
+                      Object {
+                        "label": "Slovenia (Slovenija)",
+                        "textColor": undefined,
+                        "value": "si",
+                      },
+                      Object {
+                        "label": "Solomon Islands",
+                        "textColor": undefined,
+                        "value": "sb",
+                      },
+                      Object {
+                        "label": "Somalia (Soomaaliya)",
+                        "textColor": undefined,
+                        "value": "so",
+                      },
+                      Object {
+                        "label": "South Africa",
+                        "textColor": undefined,
+                        "value": "za",
+                      },
+                      Object {
+                        "label": "South Korea (대한민국)",
+                        "textColor": undefined,
+                        "value": "kr",
+                      },
+                      Object {
+                        "label": "South Sudan (‫جنوب السودان‬‎)",
+                        "textColor": undefined,
+                        "value": "ss",
+                      },
+                      Object {
+                        "label": "Spain (España)",
+                        "textColor": undefined,
+                        "value": "es",
+                      },
+                      Object {
+                        "label": "Sri Lanka (ශ්‍රී ලංකාව)",
+                        "textColor": undefined,
+                        "value": "lk",
+                      },
+                      Object {
+                        "label": "Sudan (‫السودان‬‎)",
+                        "textColor": undefined,
+                        "value": "sd",
+                      },
+                      Object {
+                        "label": "Suriname",
+                        "textColor": undefined,
+                        "value": "sr",
+                      },
+                      Object {
+                        "label": "Svalbard and Jan Mayen",
+                        "textColor": undefined,
+                        "value": "sj",
+                      },
+                      Object {
+                        "label": "Swaziland",
+                        "textColor": undefined,
+                        "value": "sz",
+                      },
+                      Object {
+                        "label": "Sweden (Sverige)",
+                        "textColor": undefined,
+                        "value": "se",
+                      },
+                      Object {
+                        "label": "Switzerland (Schweiz)",
+                        "textColor": undefined,
+                        "value": "ch",
+                      },
+                      Object {
+                        "label": "Syria (‫سوريا‬‎)",
+                        "textColor": undefined,
+                        "value": "sy",
+                      },
+                      Object {
+                        "label": "São Tomé and Príncipe (São Tomé e Príncipe)",
+                        "textColor": undefined,
+                        "value": "st",
+                      },
+                      Object {
+                        "label": "Taiwan (台灣)",
+                        "textColor": undefined,
+                        "value": "tw",
+                      },
+                      Object {
+                        "label": "Tajikistan",
+                        "textColor": undefined,
+                        "value": "tj",
+                      },
+                      Object {
+                        "label": "Tanzania",
+                        "textColor": undefined,
+                        "value": "tz",
+                      },
+                      Object {
+                        "label": "Thailand (ไทย)",
+                        "textColor": undefined,
+                        "value": "th",
+                      },
+                      Object {
+                        "label": "Timor-Leste",
+                        "textColor": undefined,
+                        "value": "tl",
+                      },
+                      Object {
+                        "label": "Togo",
+                        "textColor": undefined,
+                        "value": "tg",
+                      },
+                      Object {
+                        "label": "Tokelau",
+                        "textColor": undefined,
+                        "value": "tk",
+                      },
+                      Object {
+                        "label": "Tonga",
+                        "textColor": undefined,
+                        "value": "to",
+                      },
+                      Object {
+                        "label": "Trinidad and Tobago",
+                        "textColor": undefined,
+                        "value": "tt",
+                      },
+                      Object {
+                        "label": "Tunisia (‫تونس‬‎)",
+                        "textColor": undefined,
+                        "value": "tn",
+                      },
+                      Object {
+                        "label": "Turkey (Türkiye)",
+                        "textColor": undefined,
+                        "value": "tr",
+                      },
+                      Object {
+                        "label": "Turkmenistan",
+                        "textColor": undefined,
+                        "value": "tm",
+                      },
+                      Object {
+                        "label": "Turks and Caicos Islands",
+                        "textColor": undefined,
+                        "value": "tc",
+                      },
+                      Object {
+                        "label": "Tuvalu",
+                        "textColor": undefined,
+                        "value": "tv",
+                      },
+                      Object {
+                        "label": "U.S. Virgin Islands",
+                        "textColor": undefined,
+                        "value": "vi",
+                      },
+                      Object {
+                        "label": "Uganda",
+                        "textColor": undefined,
+                        "value": "ug",
+                      },
+                      Object {
+                        "label": "Ukraine (Україна)",
+                        "textColor": undefined,
+                        "value": "ua",
+                      },
+                      Object {
+                        "label": "United Arab Emirates (‫الإمارات العربية المتحدة‬‎)",
+                        "textColor": undefined,
+                        "value": "ae",
+                      },
+                      Object {
+                        "label": "United Kingdom",
+                        "textColor": undefined,
+                        "value": "gb",
+                      },
+                      Object {
+                        "label": "United States",
+                        "textColor": undefined,
+                        "value": "us",
+                      },
+                      Object {
+                        "label": "Uruguay",
+                        "textColor": undefined,
+                        "value": "uy",
+                      },
+                      Object {
+                        "label": "Uzbekistan (Oʻzbekiston)",
+                        "textColor": undefined,
+                        "value": "uz",
+                      },
+                      Object {
+                        "label": "Vanuatu",
+                        "textColor": undefined,
+                        "value": "vu",
+                      },
+                      Object {
+                        "label": "Vatican City (Città del Vaticano)",
+                        "textColor": undefined,
+                        "value": "va",
+                      },
+                      Object {
+                        "label": "Venezuela",
+                        "textColor": undefined,
+                        "value": "ve",
+                      },
+                      Object {
+                        "label": "Vietnam (Việt Nam)",
+                        "textColor": undefined,
+                        "value": "vn",
+                      },
+                      Object {
+                        "label": "Wallis and Futuna",
+                        "textColor": undefined,
+                        "value": "wf",
+                      },
+                      Object {
+                        "label": "Western Sahara (‫الصحراء الغربية‬‎)",
+                        "textColor": undefined,
+                        "value": "eh",
+                      },
+                      Object {
+                        "label": "Yemen (‫اليمن‬‎)",
+                        "textColor": undefined,
+                        "value": "ye",
+                      },
+                      Object {
+                        "label": "Zambia",
+                        "textColor": undefined,
+                        "value": "zm",
+                      },
+                      Object {
+                        "label": "Zimbabwe",
+                        "textColor": undefined,
+                        "value": "zw",
+                      },
+                      Object {
+                        "label": "Åland Islands",
+                        "textColor": undefined,
+                        "value": "ax",
+                      },
+                    ]
+                  }
+                  onChange={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  selectedIndex={229}
+                  style={
+                    Array [
+                      Object {
+                        "height": 216,
+                      },
+                      Object {
+                        "fontSize": 30,
+                      },
+                    ]
+                  }
+                />
+              </View>
+            </View>
+          </View>
+        </View>
+      </Modal>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "rgba(0, 0, 0, 0.0)",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "padding": 5,
+          "position": "relative",
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#4D608B",
+          "borderRadius": 5,
+          "borderWidth": 0.1,
+          "flex": 1,
+          "height": 50,
+          "justifyContent": "center",
+          "marginLeft": 10,
+          "marginRight": 10,
+          "opacity": 1,
+          "width": 150,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 30,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        Submit
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 2,
+      }
+    }
+  />
+</View>
+`;
